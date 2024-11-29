@@ -21,7 +21,7 @@ const password = ref('123456');
 const handleForm = async function () {
   clearCookie('session_token');
   clearCookie('csrf_token');
-  const backendUrl = import.meta.env.BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   try {
     const data = await handleData(
