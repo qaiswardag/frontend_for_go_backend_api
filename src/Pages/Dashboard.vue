@@ -67,9 +67,10 @@ const handlePostJob = async function () {
 //
 //
 const handleSubmit = async function () {
+  const backendUrl = import.meta.env.VITE_UNSPLASH_KEY;
   try {
-    const data = await handleDataGet(
-      `http://localhost:5555/user/settings`,
+    await handleDataGet(
+      `${backendUrl}/user/settings`,
       {
         credentials: 'include',
       },
