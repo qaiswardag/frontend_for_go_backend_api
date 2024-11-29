@@ -67,7 +67,7 @@ const handlePostJob = async function () {
 //
 //
 const handleSubmit = async function () {
-  const backendUrl = import.meta.env.VITE_UNSPLASH_KEY;
+  const backendUrl = import.meta.env.BACKEND_URL;
   try {
     await handleDataGet(
       `${backendUrl}/user/settings`,
