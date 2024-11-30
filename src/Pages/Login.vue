@@ -16,7 +16,7 @@ const {
 } = vueFetch();
 
 const email = ref('qais.wardag@outlook.com');
-const password = ref('123456');
+const password = ref('1234');
 
 const handleForm = async function () {
   clearCookie('session_token');
@@ -31,8 +31,6 @@ const handleForm = async function () {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          'Accept-Version': '',
-          Authorization: '',
         },
         body: JSON.stringify({
           email: email.value,

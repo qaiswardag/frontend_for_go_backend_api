@@ -73,6 +73,9 @@ const handleSubmit = async function () {
       `${backendUrl}/user/settings`,
       {
         credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
       {
         additionalCallTime: 1000,
