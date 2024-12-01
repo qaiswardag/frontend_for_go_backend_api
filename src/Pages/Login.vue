@@ -28,6 +28,7 @@ const handleForm = async function () {
       `${backendUrl}/login`,
       {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
