@@ -155,6 +155,9 @@ const handleForm = async function () {
                     <template v-if="isLoading">Loading.. </template>
                   </button>
                 </div>
+                <template v-if="error">
+                  <p class="myPrimaryParagraphError">{{ error }}</p>
+                </template>
               </form>
             </div>
           </div>
