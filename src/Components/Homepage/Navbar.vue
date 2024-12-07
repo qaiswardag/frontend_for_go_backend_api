@@ -3,79 +3,56 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-  <nav
-    class="bg-slate-200 px-6 py-6 mx-auto flex items-center justify-between lg:h-[10vh] h-[16vh]"
-    aria-label="Global"
+  <p
+    class="text-sm font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer p-4"
   >
-    <RouterLink :to="{ name: 'Home' }">
-      <img
-        class="h-6"
-        src="/logo/logo.svg"
-        alt="Logo"
-      />
-    </RouterLink>
-
-    <div class="flex lg:gap-x-8 myPrimaryGap">
-      <p
-        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
-      >
+    Search
+  </p>
+  <header class="w-2/3 text-sm">
+    <nav aria-label="Global">
+      <div class="flex items-center justify-end myPrimaryGap pr-4">
         <RouterLink
-          class="text-myPrimaryDarkGrayColor"
+          class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
           :to="{ name: 'Home' }"
         >
           Home
         </RouterLink>
-      </p>
-      <p
-        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
-      >
+
         <RouterLink
-          class="text-myPrimaryDarkGrayColor"
+          class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
           :to="{ name: 'Jobs' }"
         >
           Jobs
         </RouterLink>
-      </p>
-      <p
-        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
-      >
+
         <RouterLink
-          class="text-myPrimaryDarkGrayColor"
+          class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
           :to="{ name: 'Dashboard' }"
         >
           Dashboard
         </RouterLink>
-      </p>
-      <p
-        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
-      >
+
         <RouterLink
-          class="text-myPrimaryDarkGrayColor"
+          class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
           :to="{ name: 'Login' }"
         >
           Login
         </RouterLink>
-      </p>
-      <p
-        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
-      >
+
         <RouterLink
-          class="text-myPrimaryDarkGrayColor"
-          :to="{ name: 'Password' }"
-        >
-          Reset password
-        </RouterLink>
-      </p>
-      <p
-        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
-      >
-        <RouterLink
-          class="text-myPrimaryDarkGrayColor"
+          class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
           :to="{ name: 'Register' }"
         >
           Register
         </RouterLink>
-      </p>
-    </div>
-  </nav>
+
+        <RouterLink
+          class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
+          :to="{ name: 'Password' }"
+        >
+          Reset password
+        </RouterLink>
+      </div>
+    </nav>
+  </header>
 </template>
