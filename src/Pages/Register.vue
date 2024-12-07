@@ -15,6 +15,8 @@ const {
   isSuccess,
 } = vueFetch();
 
+const firstName = ref('John');
+const lastName = ref('Doe');
 const username = ref('jd');
 const email = ref('jd@myissue.dk');
 const password = ref('1234');
@@ -35,6 +37,8 @@ const handleForm = async function () {
         },
         body: JSON.stringify({
           username: username.value,
+          first_name: firstName.value,
+          last_name: lastName.value,
           email: email.value,
           password: password.value,
         }),
@@ -84,6 +88,40 @@ const handleForm = async function () {
                 @submit.prevent
                 class="space-y-6"
               >
+                <div>
+                  <label
+                    for="first_name"
+                    class="myPrimaryInputLabel"
+                    >First name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      v-model="firstName"
+                      id="first_name"
+                      name="first_name"
+                      type="text"
+                      autocomplete="given-name"
+                      class="myPrimaryInput"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    for="last_name"
+                    class="myPrimaryInputLabel"
+                    >Last name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      v-model="lastName"
+                      id="last_name"
+                      name="last_name"
+                      type="text"
+                      autocomplete="family-name"
+                      class="myPrimaryInput"
+                    />
+                  </div>
+                </div>
                 <div>
                   <label
                     for="username"
