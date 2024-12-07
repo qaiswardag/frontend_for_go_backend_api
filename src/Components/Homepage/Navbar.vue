@@ -73,7 +73,7 @@ import { RouterLink } from 'vue-router';
           class="text-myPrimaryDarkGrayColor"
           :to="{ name: 'Register' }"
         >
-          Sign up
+          Register
         </RouterLink>
       </p>
     </div>
