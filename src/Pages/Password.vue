@@ -39,9 +39,6 @@ const handleForm = async function () {
         additionalCallTime: 1000,
       }
     );
-
-    console.log('Session Token:', getCookie('session_token'));
-    console.log('CSRF Token:', getCookie('csrf_token'));
   } catch (error) {
     console.log(`error:`, error);
   }
