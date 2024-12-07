@@ -61,6 +61,16 @@ import { RouterLink } from 'vue-router';
       >
         <RouterLink
           class="text-myPrimaryDarkGrayColor"
+          :to="{ name: 'Password' }"
+        >
+          Reset password
+        </RouterLink>
+      </p>
+      <p
+        class="text-xs font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer"
+      >
+        <RouterLink
+          class="text-myPrimaryDarkGrayColor"
           :to="{ name: 'Register' }"
         >
           Sign up

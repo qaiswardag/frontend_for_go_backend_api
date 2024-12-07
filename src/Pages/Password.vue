@@ -15,8 +15,7 @@ const {
   isSuccess,
 } = vueFetch();
 
-const email = ref('qais.wardag@outlook.com');
-const password = ref('123456');
+const password = ref('1234');
 
 const handleForm = async function () {
   clearCookie('session_token');
@@ -25,17 +24,14 @@ const handleForm = async function () {
 
   try {
     const data = await handleData(
-      `${backendUrl}/register`,
+      `${backendUrl}/user/reset-password`,
       {
         method: 'POST',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          'Accept-Version': '',
-          Authorization: '',
         },
         body: JSON.stringify({
-          email: email.value,
           password: password.value,
         }),
       },
@@ -46,7 +42,6 @@ const handleForm = async function () {
 
     console.log('Session Token:', getCookie('session_token'));
     console.log('CSRF Token:', getCookie('csrf_token'));
-    console.log(`data:`, data);
   } catch (error) {
     console.log(`error:`, error);
   }
@@ -56,7 +51,7 @@ const handleForm = async function () {
 <template>
   <div>
     <FullWidthElement :descriptionArea="true">
-      <template #title>Login</template>
+      <template #title>Reset password</template>
 
       <template #content>
         <!-- Form # start -->
@@ -67,7 +62,7 @@ const handleForm = async function () {
             <h2
               class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
             >
-              Sign up today!
+              Reset password
             </h2>
             <p class="myPrimaryParagraph my-6">
               type of fetchedDataGet: {{ typeof fetchedData }}
@@ -88,24 +83,6 @@ const handleForm = async function () {
                 @submit.prevent
                 class="space-y-6"
               >
-                <div>
-                  <label
-                    for="email"
-                    class="myPrimaryInputLabel"
-                    >Email address</label
-                  >
-                  <div class="mt-2">
-                    <input
-                      v-model="email"
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      class="myPrimaryInput"
-                    />
-                  </div>
-                </div>
-
                 <div>
                   <label
                     for="password"
@@ -155,6 +132,7 @@ const handleForm = async function () {
                     <template v-if="isLoading">Loading.. </template>
                   </button>
                 </div>
+
                 <template v-if="error">
                   <p class="myPrimaryParagraphError">{{ error }}</p>
                 </template>
