@@ -15,7 +15,8 @@ const {
   isSuccess,
 } = vueFetch();
 
-const email = ref('qais.wardag@outlook.com');
+const username = ref('jd');
+const email = ref('jd@myissue.dk');
 const password = ref('1234');
 
 const handleForm = async function () {
@@ -33,6 +34,7 @@ const handleForm = async function () {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          username: username.value,
           email: email.value,
           password: password.value,
         }),
@@ -82,6 +84,23 @@ const handleForm = async function () {
                 @submit.prevent
                 class="space-y-6"
               >
+                <div>
+                  <label
+                    for="username"
+                    class="myPrimaryInputLabel"
+                    >Username</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      v-model="username"
+                      id="username"
+                      name="username"
+                      type="text"
+                      autocomplete="username"
+                      class="myPrimaryInput"
+                    />
+                  </div>
+                </div>
                 <div>
                   <label
                     for="email"
