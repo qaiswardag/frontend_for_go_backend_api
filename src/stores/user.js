@@ -1,20 +1,68 @@
 import { defineStore } from 'pinia';
 
+import { vueFetch } from '@/composables/vueFetch';
+
+// get images
+const {
+  handleData,
+  fetchedData,
+  isError,
+  error,
+  errors,
+  isLoading,
+  isSuccess,
+} = vueFetch();
+
 export const useUserStore = defineStore('user', {
   state: () => ({
-    isLoading: false,
-    userSettings: null,
+    user: null,
   }),
   getters: {
-    getIsLoading: (state) => state.isLoading,
-    getUserSettings: (state) => state.userSettings,
+    getUser: (state) => state.user,
   },
   actions: {
-    setIsLoading(payload) {
-      this.isLoading = payload;
+    setUser(payload) {
+      this.user = payload;
     },
-    setUserSettings(payload) {
-      this.userSettings = payload;
+    // Load Unsplash images
+    async setLoadUser() {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+      this.setUser({
+        fetchedData: null,
+        isError: null,
+        error: null,
+        errors: null,
+        isLoading: true,
+        isSuccess: null,
+      });
+
+      try {
+        await handleData(
+          `${backendUrl}/user/user`,
+          {
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+          {
+            additionalCallTime: 1000,
+          }
+        );
+      } catch (error) {
+        console.log(`error`, error);
+      }
+
+      // Update state directly instead of committing mutations
+      this.setUser({
+        fetchedData,
+        isError,
+        error,
+        errors,
+        isLoading,
+        isSuccess,
+      });
     },
   },
 });

@@ -70,7 +70,7 @@ const handleSubmit = async function () {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   try {
     await handleDataGet(
-      `${backendUrl}/user/settings`,
+      `${backendUrl}/user/user`,
       {
         credentials: 'include',
         headers: {

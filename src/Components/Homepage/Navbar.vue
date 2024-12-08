@@ -1,5 +1,21 @@
 <script setup>
+import { computed, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
+import { useUserStore } from '@/stores/user';
+
+const userStore = useUserStore();
+
+const getUser = computed(() => {
+  return userStore.getUser;
+});
+
+function fetchUser() {
+  userStore.setLoadUser();
+}
+
+onMounted(() => {
+  fetchUser();
+});
 </script>
 
 <template>
@@ -7,7 +23,7 @@ import { RouterLink } from 'vue-router';
     <div
       class="text-sm font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer px-4"
     >
-      Search
+      User: {{ JSON.stringify(getUser) }}
     </div>
   </header>
   <header
