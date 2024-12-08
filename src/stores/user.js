@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
-
+import { clearCookie } from '@/composables/clearCookie';
 import { vueFetch } from '@/composables/vueFetch';
 
-// get images
 const {
   handleData,
   fetchedData,
@@ -11,6 +10,16 @@ const {
   errors,
   isLoading,
   isSuccess,
+} = vueFetch();
+
+const {
+  handleData: handleDataSignOut,
+  fetchedData: fetchedDataSignOut,
+  isError: isErrorSignOut,
+  error: errorSignOut,
+  errors: errorsSignOut,
+  isLoading: isLoadingSignOut,
+  isSuccess: isSuccessSignOut,
 } = vueFetch();
 
 export const useUserStore = defineStore('user', {
@@ -69,6 +78,32 @@ export const useUserStore = defineStore('user', {
         isLoading,
         isSuccess,
       });
+    },
+
+    // sign out
+    async setUserSignOut(payload) {
+      clearCookie('session_token');
+      clearCookie('csrf_token');
+
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+      try {
+        const data = await handleDataSignOut(
+          `${backendUrl}/user/sign-out`,
+          {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+          {
+            additionalCallTime: 1000,
+          }
+        );
+      } catch (error) {
+        console.log(`error:`, error);
+      }
     },
   },
 });

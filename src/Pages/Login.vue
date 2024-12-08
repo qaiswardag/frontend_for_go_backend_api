@@ -25,7 +25,7 @@ const handleForm = async function () {
 
   try {
     const data = await handleData(
-      `${backendUrl}/login`,
+      `${backendUrl}/user/sign-in`,
       {
         method: 'POST',
         credentials: 'include',
