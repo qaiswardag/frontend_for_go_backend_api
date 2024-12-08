@@ -61,16 +61,16 @@ const handleForm = async function () {
             >
               Reset password
             </h2>
-            <p class="myPrimaryParagraph my-6">
+            <p class="myPrimaryParagraph my-6 whitespace-pre">
               type of fetchedDataGet: {{ typeof fetchedData }}
               <br />
-              fetchedData: {{ JSON.stringify(fetchedData) }}
+              fetchedData: {{ fetchedData }}
             </p>
-            <p class="myPrimaryParagraph my-6">
+            <p class="myPrimaryParagraph my-6 whitespace-pre">
               type of error:
               {{ typeof error }}
               <br />
-              error: {{ JSON.stringify(error) }}
+              error: {{ error }}
             </p>
           </div>
 

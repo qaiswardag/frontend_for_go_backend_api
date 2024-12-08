@@ -21,9 +21,16 @@ onMounted(() => {
 <template>
   <header class="w-1/3 text-sm bg-yellow-100 h-full flex">
     <div
-      class="text-sm font-medium text-myPrimaryDarkGrayColor flex gap-2 items-center cursor-pointer px-4"
+      class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
     >
-      User: {{ JSON.stringify(getUser) }}
+      <div class="bg-gray-100 bg-opacity-25">
+        <p class="myPrimaryParagraph my-6 whitespace-pre">
+          fetchedData: {{ getUser }}
+        </p>
+        <p class="myPrimaryParagraph my-6 whitespace-pre">
+          error: {{ getUser && getUser.error }}
+        </p>
+      </div>
     </div>
   </header>
   <header

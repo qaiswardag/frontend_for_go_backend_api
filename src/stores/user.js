@@ -42,6 +42,7 @@ export const useUserStore = defineStore('user', {
           `${backendUrl}/user/user`,
           {
             credentials: 'include',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },

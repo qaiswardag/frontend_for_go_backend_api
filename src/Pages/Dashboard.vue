@@ -1,7 +1,6 @@
 <script setup>
 import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
 import { vueFetch } from '@/composables/vueFetch';
-import { ca } from 'date-fns/locale';
 import { onMounted, ref } from 'vue';
 
 const {
