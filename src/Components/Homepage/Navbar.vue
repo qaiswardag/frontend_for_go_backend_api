@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="flex w-full h-full">
     <div class="w-1/3 text-sm bg-yellow-100 h-full flex items-center">
       <div
         class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
@@ -39,7 +39,7 @@ onMounted(() => {
           </div>
         </template>
 
-        <tempalte
+        <template
           v-if="
             getUser &&
             getUser.fetchedData &&
@@ -64,7 +64,7 @@ onMounted(() => {
               </span>
             </div>
           </div>
-        </tempalte>
+        </template>
       </div>
     </div>
 
