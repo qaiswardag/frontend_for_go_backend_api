@@ -81,7 +81,7 @@ const sidebarOpen = ref(false);
               </div>
             </TransitionChild>
             <div class="mt-5 h-0 flex-1 overflow-y-auto">
-              <NavbarLeft></NavbarLeft>
+              <LoggedinSidebar></LoggedinSidebar>
             </div>
           </DialogPanel>
         </TransitionChild>
