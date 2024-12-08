@@ -10,49 +10,6 @@ import { usePageBuilderStateStore } from '@/stores/page-builder-state';
 import { useUserStore } from '@/stores/user';
 import { useMediaLibraryStore } from '@/stores/media-library';
 
-const features = [
-  {
-    name: 'Live Drag & Drop Builder',
-    description:
-      'Click & Drop content on a page and watch your pages come to life. Bring your vision to life and create impressive pages using a click & drop Page Builder',
-  },
-  {
-    name: 'True Visual Editing',
-    description:
-      'See your changes in real-time as you make them. Elevate your creative vision and create pages using an intuitive click & drop page builder. Break free from design limitations and turn your visions into reality.',
-  },
-  {
-    name: 'Features',
-    description:
-      'Click & Drop, Reordering, True Visual Editing, Responsive Editing, Font Customization, Undo & Redo, Text Editing, Media Library, Unsplash Integration, YouTube Videos.',
-  },
-  {
-    name: 'Technologies',
-    description:
-      'Developed with JavaScript, Vue 3, Composition API, Pinia, CSS, Tailwind CSS and HTML.',
-  },
-  {
-    name: 'Set Brand and Link Colors one place',
-    description:
-      'Global Styles for fonts, designs, & colors. Set Brand and Link Colors once and apply them across the entire Platform with ease.',
-  },
-  {
-    name: 'Mobile-First Approach',
-    description:
-      'Developed with Mobile-First approach. The Page Builder even works on mobile phones.',
-  },
-  {
-    name: 'Media Library',
-    description:
-      'A beautiful and user-friendly media library that allows you to change and update images. Unsplash Integration is included.',
-  },
-  {
-    name: 'Minimal and Intuitive Design',
-    description:
-      'Beautiful, elegant and intuitive design. Enhance user engagement with amazing visual experience.',
-  },
-];
-
 const mediaLibraryStore = useMediaLibraryStore();
 const pageBuilderStateStore = usePageBuilderStateStore();
 const userStore = useUserStore();

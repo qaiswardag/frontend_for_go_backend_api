@@ -16,13 +16,18 @@ const {
 export const useUserStore = defineStore('user', {
   state: () => ({
     user: null,
+    isLoading: false,
   }),
   getters: {
     getUser: (state) => state.user,
+    getIsLoading: (state) => state.isLoading,
   },
   actions: {
     setUser(payload) {
       this.user = payload;
+    },
+    setIsLoading(payload) {
+      this.isLoading = payload;
     },
     // Load Unsplash images
     async setLoadUser() {
