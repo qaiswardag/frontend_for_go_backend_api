@@ -8,6 +8,10 @@ const userStore = useUserStore();
 const getUser = computed(() => {
   return userStore.getUser;
 });
+
+const handleLogOut = async function () {
+  userStore.setUserSignOut();
+};
 </script>
 
 <template>
@@ -106,6 +110,14 @@ const getUser = computed(() => {
           >
             Reset password
           </RouterLink>
+
+          <button
+            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-medium text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
+            type="button"
+            @click="handleLogOut"
+          >
+            Sign out
+          </button>
         </div>
       </nav>
     </header>
