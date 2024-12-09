@@ -11,6 +11,7 @@ import Dashboard from './Pages/Dashboard.vue';
 import NotFound from './Pages/NotFound.vue';
 import Jobs from './Pages/Jobs.vue';
 import { createWebHistory, createRouter } from 'vue-router';
+import setupAuthGuard from './middleware/auth';
 
 const newRoutes = [
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
@@ -31,5 +32,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+
+setupAuthGuard(router);
 
 app.mount('#app');

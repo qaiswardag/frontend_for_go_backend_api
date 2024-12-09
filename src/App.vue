@@ -13,7 +13,6 @@ import {
   TransitionChild,
   TransitionRoot,
 } from '@headlessui/vue';
-
 import { ref } from 'vue';
 
 const sidebarOpen = ref(false);

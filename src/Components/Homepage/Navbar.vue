@@ -8,14 +8,6 @@ const userStore = useUserStore();
 const getUser = computed(() => {
   return userStore.getUser;
 });
-
-function fetchUser() {
-  userStore.setLoadUser();
-}
-
-onMounted(() => {
-  fetchUser();
-});
 </script>
 
 <template>

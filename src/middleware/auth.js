@@ -1,10 +1,15 @@
 import { getCookie } from '@/composables/getCookie';
-import { useRouter } from 'vue-router';
+import { useUserStore } from '../stores/user';
 
-const router = useRouter();
+export default function setupAuthGuard(router) {
+  const userStore = useUserStore();
 
-router.beforeEach((to, from, next) => {
-  console.log('Session Token:', getCookie('session_token'));
-  console.log('CSRF Token:', getCookie('csrf_token'));
-  next();
-});
+  console.log('middleware køre:');
+  // console.log('Session Token:', getCookie('session_token'));
+  // console.log('CSRF Token:', getCookie('csrf_token'));
+
+  router.beforeEach((to, from, next) => {
+    userStore.setLoadUser();
+    next();
+  });
+}
