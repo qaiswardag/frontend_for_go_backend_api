@@ -4,6 +4,9 @@ import { clearCookie } from '@/composables/clearCookie';
 import { getCookie } from '@/composables/getCookie';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
+import { useUserStore } from '@/stores/user';
+
+const userStore = useUserStore();
 
 const {
   handleData,
@@ -41,6 +44,15 @@ const handleForm = async function () {
         additionalCallTime: 1000,
       }
     );
+
+    userStore.setUser({
+      fetchedData,
+      isError,
+      error,
+      errors,
+      isLoading,
+      isSuccess,
+    });
   } catch (error) {
     console.log(`error:`, error);
   }
