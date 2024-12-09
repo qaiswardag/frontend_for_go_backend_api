@@ -82,6 +82,8 @@ export const useUserStore = defineStore('user', {
 
     // sign out
     async setUserSignOut(payload) {
+      this.setUser(null);
+
       clearCookie('session_token');
       clearCookie('csrf_token');
 
