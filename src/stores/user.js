@@ -42,15 +42,6 @@ export const useUserStore = defineStore('user', {
     async setLoadUser() {
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-      this.setUser({
-        fetchedData: null,
-        isError: null,
-        error: null,
-        errors: null,
-        isLoading: true,
-        isSuccess: null,
-      });
-
       try {
         await handleData(
           `${backendUrl}/user/user`,
@@ -68,21 +59,20 @@ export const useUserStore = defineStore('user', {
       } catch (error) {
         console.log(`error`, error);
       }
-
-      // Update state directly instead of committing mutations
-      this.setUser({
-        fetchedData,
-        isError,
-        error,
-        errors,
-        isLoading,
-        isSuccess,
-      });
     },
 
     // sign out
     async setUserSignOut(payload) {
-      this.setUser(null);
+      // Update state directly instead of committing mutations
+      this.setUser({
+        handleData: handleDataSignOut,
+        fetchedData: fetchedDataSignOut,
+        isError: isErrorSignOut,
+        error: errorSignOut,
+        errors: errorsSignOut,
+        isLoading: isLoadingSignOut,
+        isSuccess: isSuccessSignOut,
+      });
 
       clearCookie('session_token');
       clearCookie('csrf_token');
@@ -103,6 +93,17 @@ export const useUserStore = defineStore('user', {
             additionalCallTime: 1000,
           }
         );
+
+        // Update state directly instead of committing mutations
+        this.setUser({
+          handleData: handleDataSignOut,
+          fetchedData: fetchedDataSignOut,
+          isError: isErrorSignOut,
+          error: errorSignOut,
+          errors: errorsSignOut,
+          isLoading: isLoadingSignOut,
+          isSuccess: isSuccessSignOut,
+        });
       } catch (error) {
         console.log(`error:`, error);
       }

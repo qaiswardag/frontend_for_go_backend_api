@@ -27,6 +27,15 @@ const handleForm = async function () {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   try {
+    userStore.setUser({
+      fetchedData,
+      isError,
+      error,
+      errors,
+      isLoading,
+      isSuccess,
+    });
+
     const data = await handleData(
       `${backendUrl}/user/sign-in`,
       {
