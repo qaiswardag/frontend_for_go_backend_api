@@ -4,71 +4,21 @@ import { vueFetch } from '@/composables/vueFetch';
 import { onMounted, ref } from 'vue';
 
 const {
-  handleData,
-  fetchedData,
-  isError,
-  error,
-  errors,
-  isLoading,
-  isSuccess,
-} = vueFetch();
-
-const {
-  handleData: handleDataGet,
-  fetchedData: fetchedDataGet,
-  isError: isErrorGet,
-  error: errorGet,
-  errors: errorsGet,
-  isLoading: isLoadingGet,
-  isSuccess: isSuccessGet,
+  handleData: handleDataCurrentUser,
+  fetchedData: fetchedDataCurrentUser,
+  isError: isErrorCurrentUser,
+  error: errorCurrentUser,
+  errors: errorsCurrentUser,
+  isLoading: isLoadingCurrentUser,
+  isSuccess: isSuccessCurrentUser,
 } = vueFetch();
 
 const jobTitle = ref('');
 
-const handlePostJob = async function () {
-  console.log(`jobTitle is: ${jobTitle.value}`);
-  console.log(`Job content here: ...`);
-  return;
-  try {
-    await handleData(
-      `http://localhost:7070`,
-      {
-        headers: {
-          'Accept-Version': 'v1',
-          Authorization: 'hello world',
-        },
-        method: 'POST',
-        body: JSON.stringify({
-          title: jobTitle.value,
-          content: 'content here',
-        }),
-      },
-      { additionalCallTime: 2000 }
-    );
-  } catch (error) {
-    console.log(`error:`, error);
-  }
-};
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-const handleSubmit = async function () {
+const getCurrentUser = async function () {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   try {
-    await handleDataGet(
+    await handleDataCurrentUser(
       `${backendUrl}/user/user`,
       {
         credentials: 'include',
@@ -81,7 +31,7 @@ const handleSubmit = async function () {
       }
     );
   } catch (error) {
-    console.log(`error:`, error);
+    console.error(`Error:`, error);
   }
 };
 </script>
@@ -105,29 +55,31 @@ const handleSubmit = async function () {
             <div class="my-4">
               <button
                 type="button"
-                :disabled="isLoadingGet"
-                @click="handleSubmit"
+                :disabled="isLoadingCurrentUser"
+                @click="getCurrentUser"
                 :class="{
-                  'opacity-25 cursor-default': isLoadingGet,
+                  'opacity-25 cursor-default': isLoadingCurrentUser,
                 }"
                 class="myPrimaryButton w-full"
               >
-                <template v-if="!isLoadingGet">
+                <template v-if="!isLoadingCurrentUser">
                   <span> Submit </span>
                 </template>
-                <template v-if="isLoadingGet">Loading.. </template>
+                <template v-if="isLoadingCurrentUser">Loading.. </template>
               </button>
 
               <p class="myPrimaryParagraph my-6">
-                type of fetchedDataGet: {{ typeof fetchedDataGet }}
+                type of fetchedDataCurrentUser:
+                {{ typeof fetchedDataCurrentUser }}
                 <br />
-                fetchedDataGet: {{ JSON.stringify(fetchedDataGet) }}
+                fetchedDataCurrentUser:
+                {{ JSON.stringify(fetchedDataCurrentUser) }}
               </p>
               <p class="myPrimaryParagraph my-6">
                 type of error:
-                {{ typeof errorGet }}
+                {{ typeof errorCurrentUser }}
                 <br />
-                error: {{ JSON.stringify(errorGet) }}
+                error: {{ JSON.stringify(errorCurrentUser) }}
               </p>
             </div>
             <ul class="flex flex-col gap-8">

@@ -67,7 +67,6 @@ export const vueFetch = function vueFetch() {
 
       // Fetch and handle response
       response.value = await fetch(url, fetchOptions);
-      console.log('response:', response.value);
 
       // Check if the fetch request was successful. If not, throw an error
       if (response.value.status !== 200 && response.value.status !== 201) {

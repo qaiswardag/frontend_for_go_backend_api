@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import { vueFetch } from '@/composables/vueFetch';
-import { getCookie } from '@/composables/getCookie';
 
 const {
   handleData,
@@ -72,11 +71,8 @@ export const useUserStore = defineStore('user', {
           isLoading: isLoadingUser,
           isSuccess: isSuccessUser,
         });
-
-        console.log('Session cookie uuuuuuser:', getCookie('session_token'));
-        console.log('CSRF cookie uuuuuuser:', getCookie('csrf_token'));
       } catch (error) {
-        console.log(`error`, error);
+        console.error(`Error`, error);
       }
     },
 
@@ -120,7 +116,7 @@ export const useUserStore = defineStore('user', {
           isSuccess: isSuccessSignOut,
         });
       } catch (error) {
-        console.log(`error:`, error);
+        console.error(`Error:`, error);
       }
     },
   },

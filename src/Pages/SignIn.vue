@@ -1,6 +1,5 @@
 <script setup>
 import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
-import { getCookie } from '@/composables/getCookie';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
@@ -59,11 +58,8 @@ const handleForm = async function () {
       isLoading,
       isSuccess,
     });
-
-    console.log('Session cookie sign in:', getCookie('session_token'));
-    console.log('CSRF cookie sign in:', getCookie('csrf_token'));
   } catch (error) {
-    console.log(`error:`, error);
+    console.error(`Error:`, error);
   }
 };
 </script>

@@ -389,7 +389,7 @@ export const usePageBuilderStateStore = defineStore('pageBuilderState', {
           isSuccess: isSuccessComponents,
         });
       } catch (error) {
-        console.log(`error`, error);
+        console.error(`Error`, error);
       }
     },
   },

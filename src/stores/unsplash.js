@@ -70,7 +70,7 @@ export const useUnsplashStore = defineStore('unsplash', {
           { additionalCallTime: 500 }
         );
       } catch (error) {
-        console.log(`error`, error);
+        console.error(`Error`, error);
       }
 
       // Update state directly instead of committing mutations

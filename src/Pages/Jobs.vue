@@ -31,7 +31,7 @@ const handleGetJobs = async function () {
       { additionalCallTime: 2000 }
     );
   } catch (error) {
-    console.log(`error:`, error);
+    console.error(`Error:`, error);
   }
 };
 </script>

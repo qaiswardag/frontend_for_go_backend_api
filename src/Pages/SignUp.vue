@@ -1,6 +1,5 @@
 <script setup>
 import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
-import { getCookie } from '@/composables/getCookie';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 
@@ -58,7 +57,6 @@ const handleForm = async function () {
       }
     );
 
-    console.log('data:', data);
     userStore.setUser({
       fetchedData,
       isError,
@@ -68,7 +66,7 @@ const handleForm = async function () {
       isSuccess,
     });
   } catch (error) {
-    console.log(`error:`, error);
+    console.error(`Error:`, error);
   }
 };
 </script>
