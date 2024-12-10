@@ -34,7 +34,6 @@ const handleLogOut = async function () {
             </span>
           </div>
         </template>
-
         <template
           v-if="
             getUser &&

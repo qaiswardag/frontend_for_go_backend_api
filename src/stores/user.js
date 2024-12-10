@@ -4,12 +4,12 @@ import { vueFetch } from '@/composables/vueFetch';
 
 const {
   handleData,
-  fetchedData,
-  isError,
-  error,
-  errors,
-  isLoading,
-  isSuccess,
+  fetchedData: fetchedDataUser,
+  isError: isErrorUser,
+  error: errorUser,
+  errors: errorsUser,
+  isLoading: isLoadingUser,
+  isSuccess: isSuccessUser,
 } = vueFetch();
 
 const {
@@ -41,7 +41,14 @@ export const useUserStore = defineStore('user', {
     // Load Unsplash images
     async setLoadUser() {
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
+      this.setUser({
+        fetchedData: fetchedDataUser,
+        isError: isErrorUser,
+        error: errorUser,
+        errors: errorsUser,
+        isLoading: isLoadingUser,
+        isSuccess: isSuccessUser,
+      });
       try {
         await handleData(
           `${backendUrl}/user/user`,
@@ -56,6 +63,15 @@ export const useUserStore = defineStore('user', {
             additionalCallTime: 1000,
           }
         );
+
+        this.setUser({
+          fetchedData: fetchedDataUser,
+          isError: isErrorUser,
+          error: errorUser,
+          errors: errorsUser,
+          isLoading: isLoadingUser,
+          isSuccess: isSuccessUser,
+        });
       } catch (error) {
         console.log(`error`, error);
       }
@@ -63,7 +79,6 @@ export const useUserStore = defineStore('user', {
 
     // sign out
     async setUserSignOut(payload) {
-      // Update state directly instead of committing mutations
       this.setUser({
         handleData: handleDataSignOut,
         fetchedData: fetchedDataSignOut,
