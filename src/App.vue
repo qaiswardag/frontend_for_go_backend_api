@@ -134,7 +134,9 @@ const sidebarOpen = ref(false);
       </div>
       <!-- Navbar - end -->
 
-      <router-view></router-view>
+      <div class="min-h-screen">
+        <router-view></router-view>
+      </div>
     </div>
     <Footer></Footer>
   </div>

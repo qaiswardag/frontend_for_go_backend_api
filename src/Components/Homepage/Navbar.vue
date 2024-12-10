@@ -21,18 +21,16 @@ const handleLogOut = async function () {
         class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
       >
         <template v-if="getUser && getUser.isLoading && !getUser.isError">
-          <div>
-            <span class="flex justify-center items-center h-10 w-10">
-              <span class="relative flex justify-center items-center h-3 w-3">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-myPrimaryLinkColor opacity-50"
-                ></span>
-                <span
-                  class="relative inline-flex rounded-full h-3 w-3 bg-myPrimaryLinkColor"
-                ></span>
-              </span>
+          <span class="flex justify-center items-center h-10 w-10">
+            <span class="relative flex justify-center items-center h-3 w-3">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-myPrimaryLinkColor opacity-50"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-3 w-3 bg-myPrimaryLinkColor"
+              ></span>
             </span>
-          </div>
+          </span>
         </template>
         <template
           v-if="

@@ -1,6 +1,5 @@
 <script setup>
 import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
-import { clearCookie } from '@/composables/clearCookie';
 import { getCookie } from '@/composables/getCookie';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
@@ -26,8 +25,6 @@ const email = ref('jd@myissue.dk');
 const password = ref('1234');
 
 const handleForm = async function () {
-  clearCookie('session_token');
-  clearCookie('csrf_token');
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   try {

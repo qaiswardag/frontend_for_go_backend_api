@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { clearCookie } from '@/composables/clearCookie';
 import { vueFetch } from '@/composables/vueFetch';
+import { getCookie } from '@/composables/getCookie';
 
 const {
   handleData,
@@ -38,7 +38,7 @@ export const useUserStore = defineStore('user', {
     setIsLoading(payload) {
       this.isLoading = payload;
     },
-    // Load Unsplash images
+
     async setLoadUser() {
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
       this.setUser({
@@ -72,6 +72,9 @@ export const useUserStore = defineStore('user', {
           isLoading: isLoadingUser,
           isSuccess: isSuccessUser,
         });
+
+        console.log('Session cookie uuuuuuser:', getCookie('session_token'));
+        console.log('CSRF cookie uuuuuuser:', getCookie('csrf_token'));
       } catch (error) {
         console.log(`error`, error);
       }
@@ -88,9 +91,6 @@ export const useUserStore = defineStore('user', {
         isLoading: isLoadingSignOut,
         isSuccess: isSuccessSignOut,
       });
-
-      clearCookie('session_token');
-      clearCookie('csrf_token');
 
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
 

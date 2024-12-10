@@ -1,15 +1,15 @@
 export const getCookie = function (name) {
   if (typeof document === 'undefined') {
-    console.error('getCookie: document is not defined');
     return null;
   }
 
   const value = `${document.cookie}`;
-  console.log('val:', value);
 
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) {
-    return parts.pop().split(';').shift();
+  const parts = value.split(';').map((cookie) => cookie.trim());
+  for (let part of parts) {
+    if (part.startsWith(`${name}=`)) {
+      return part.substring(name.length + 1);
+    }
   }
-  return name + ' not found.';
+  return `${name} not found.`;
 };

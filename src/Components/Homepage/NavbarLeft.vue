@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { vueFetch } from '@/composables/vueFetch';
-import { clearCookie } from '@/composables/clearCookie';
 import { useUserStore } from '@/stores/user';
 const userStore = useUserStore();
 
