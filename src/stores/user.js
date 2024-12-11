@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { vueFetch } from '@/composables/vueFetch';
 
 const {
-  handleData,
+  handleData: handleDataUser,
   fetchedData: fetchedDataUser,
   isError: isErrorUser,
   error: errorUser,
@@ -49,11 +49,10 @@ export const useUserStore = defineStore('user', {
         isSuccess: isSuccessUser,
       });
       try {
-        await handleData(
+        await handleDataUser(
           `${backendUrl}/user/user`,
           {
             credentials: 'include',
-            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
