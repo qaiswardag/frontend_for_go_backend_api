@@ -3,6 +3,7 @@ import Navbar from '@/Components/Homepage/Navbar.vue';
 import Footer from '@/Components/Homepage/Footer.vue';
 import LoggedinSidebar from '@/Components/Sidebars/LoggedinSidebar.vue';
 import ApplicationLogo from '@/Components/Logos/ApplicationLogo.vue';
+import LoggedInLayout from '@/Layouts/LoggedInLayout.vue';
 import {
   Dialog,
   DialogPanel,
@@ -134,9 +135,7 @@ const sidebarOpen = ref(false);
       </div>
       <!-- Navbar - end -->
 
-      <div class="min-h-screen">
-        <router-view></router-view>
-      </div>
+      <LoggedInLayout> </LoggedInLayout>
     </div>
     <Footer></Footer>
   </div>
