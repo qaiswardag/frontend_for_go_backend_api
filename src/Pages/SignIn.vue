@@ -17,7 +17,7 @@ const {
 } = vueFetch();
 
 const email = ref('jd@myissue.dk');
-const password = ref('1234');
+const password = ref('123456');
 
 const handleForm = async function () {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
