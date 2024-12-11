@@ -117,8 +117,9 @@ onBeforeMount(() => {
       <PageBuilderView></PageBuilderView>
     </PageBuilderModal>
 
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Home</h2>
     <FullWidthElement :descriptionArea="true">
-      <template #title>Home</template>
+      <template #title>Lorem ipsum</template>
       <template #description>
         <button
           @click="handlePageBuilder"

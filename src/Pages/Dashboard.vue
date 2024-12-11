@@ -38,9 +38,9 @@ const getCurrentUser = async function () {
 
 <template>
   <div>
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Dashboard</h2>
     <FullWidthElement :descriptionArea="true">
-      <template #title>Dashboard</template>
-
+      <template #title>Lorem ipsum</template>
       <template #content>
         <div class="flex gap-8 w-full justify-center">
           <!-- Data for logged in users # start -->

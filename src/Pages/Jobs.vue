@@ -38,9 +38,9 @@ const handleGetJobs = async function () {
 
 <template>
   <div>
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Jobs</h2>
     <FullWidthElement :descriptionArea="true">
-      <template #title>Jobs</template>
-
+      <template #title>Lorem ipsum</template>
       <template #content>
         <div>
           <ul class="flex flex-col gap-8">
