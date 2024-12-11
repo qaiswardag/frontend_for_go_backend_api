@@ -120,7 +120,7 @@ const sidebarOpen = ref(false);
     <!-- Navbar - start -->
     <div class="flex flex-1 flex-col md:pl-64">
       <div
-        class="bg-slate-300 h-16 sticky top-0 z-30 flex flex-shrink-0 justify-between items-center border-b-2 border-gray-100"
+        class="bg-slate-300 h-16 sticky top-0 z-30 flex flex-shrink-0 justify-between items-center"
       >
         <button
           type="button"

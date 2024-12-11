@@ -1,5 +1,6 @@
 <script setup>
-import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
+import FullWidthBasic from '@/Components/Layouts/FullWidthBasic.vue';
+
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
@@ -66,120 +67,113 @@ const handleForm = async function () {
 
 <template>
   <div>
-    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Sign in</h2>
-    <FullWidthElement
-      class="bg-purple-200"
-      :descriptionArea="true"
-    >
-      <template #title>Lorem ipsum</template>
-
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
+      Sign in
+    </h2>
+    <FullWidthBasic class="bg-purple-200">
       <template #content>
         <!-- Form # start -->
-        <div
-          class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8"
-        >
-          <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2
-              class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2
+            class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+          >
+            Sign in to your account
+          </h2>
+          <p class="myPrimaryParagraph my-6 whitespace-pre">
+            type of fetchedDataGet: {{ typeof fetchedData }}
+            <br />
+            fetchedData: {{ fetchedData }}
+          </p>
+          <p class="myPrimaryParagraph my-6 whitespace-pre">
+            type of error:
+            {{ typeof error }}
+            <br />
+            error: {{ error }}
+          </p>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+          <div class="bg-white px-6 py-12 shadow rounded-lg sm:px-12">
+            <form
+              @submit.prevent
+              class="space-y-6"
             >
-              Sign in to your account
-            </h2>
-            <p class="myPrimaryParagraph my-6 whitespace-pre">
-              type of fetchedDataGet: {{ typeof fetchedData }}
-              <br />
-              fetchedData: {{ fetchedData }}
-            </p>
-            <p class="myPrimaryParagraph my-6 whitespace-pre">
-              type of error:
-              {{ typeof error }}
-              <br />
-              error: {{ error }}
-            </p>
-          </div>
+              <div>
+                <label
+                  for="email"
+                  class="myPrimaryInputLabel"
+                  >Email address</label
+                >
+                <div class="mt-2">
+                  <input
+                    v-model="email"
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    class="myPrimaryInput"
+                  />
+                </div>
+              </div>
 
-          <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-            <div class="bg-white px-6 py-12 shadow rounded-lg sm:px-12">
-              <form
-                @submit.prevent
-                class="space-y-6"
-              >
-                <div>
+              <div>
+                <label
+                  for="password"
+                  class="myPrimaryInputLabel"
+                  >Password</label
+                >
+                <div class="mt-2">
+                  <input
+                    v-model="password"
+                    id="password"
+                    name="password"
+                    type="password"
+                    class="myPrimaryInput"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    class="myPrimaryCheckbox"
+                  />
                   <label
-                    for="email"
-                    class="myPrimaryInputLabel"
-                    >Email address</label
+                    for="remember-me"
+                    class="ml-3 block text-sm/6 text-gray-900"
+                    >Remember me</label
                   >
-                  <div class="mt-2">
-                    <input
-                      v-model="email"
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      class="myPrimaryInput"
-                    />
-                  </div>
                 </div>
+              </div>
 
-                <div>
-                  <label
-                    for="password"
-                    class="myPrimaryInputLabel"
-                    >Password</label
-                  >
-                  <div class="mt-2">
-                    <input
-                      v-model="password"
-                      id="password"
-                      name="password"
-                      type="password"
-                      class="myPrimaryInput"
-                    />
-                  </div>
-                </div>
+              <div>
+                <button
+                  type="button"
+                  :disabled="isLoading"
+                  @click="handleForm"
+                  :class="{
+                    'opacity-25 cursor-default': isLoading,
+                  }"
+                  class="myPrimaryButton w-full"
+                >
+                  <template v-if="!isLoading">
+                    <span> Submit </span>
+                  </template>
+                  <template v-if="isLoading">Loading.. </template>
+                </button>
+              </div>
 
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      class="myPrimaryCheckbox"
-                    />
-                    <label
-                      for="remember-me"
-                      class="ml-3 block text-sm/6 text-gray-900"
-                      >Remember me</label
-                    >
-                  </div>
-                </div>
-
-                <div>
-                  <button
-                    type="button"
-                    :disabled="isLoading"
-                    @click="handleForm"
-                    :class="{
-                      'opacity-25 cursor-default': isLoading,
-                    }"
-                    class="myPrimaryButton w-full"
-                  >
-                    <template v-if="!isLoading">
-                      <span> Submit </span>
-                    </template>
-                    <template v-if="isLoading">Loading.. </template>
-                  </button>
-                </div>
-
-                <template v-if="error">
-                  <p class="myPrimaryParagraphError">{{ error }}</p>
-                </template>
-              </form>
-            </div>
+              <template v-if="error">
+                <p class="myPrimaryParagraphError">{{ error }}</p>
+              </template>
+            </form>
           </div>
         </div>
         <!-- Form # end -->
       </template>
-    </FullWidthElement>
+    </FullWidthBasic>
   </div>
 </template>

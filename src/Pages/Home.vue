@@ -1,5 +1,6 @@
 <script setup>
-import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
+import FullWidthBasic from '@/Components/Layouts/FullWidthBasic.vue';
+
 import { ref, computed, nextTick, onBeforeMount } from 'vue';
 import PageBuilderModal from '@/Components/Modals/PageBuilderModal.vue';
 
@@ -117,12 +118,10 @@ onBeforeMount(() => {
       <PageBuilderView></PageBuilderView>
     </PageBuilderModal>
 
-    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Home</h2>
-    <FullWidthElement
-      class="bg-purple-200"
-      :descriptionArea="true"
-    >
-      <template #title>Lorem ipsum</template>
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
+      Home
+    </h2>
+    <FullWidthBasic class="bg-purple-200">
       <template #description>
         <button
           @click="handlePageBuilder"
@@ -156,6 +155,6 @@ onBeforeMount(() => {
         laboriosam nostrum quam asperiores veritatis illum expedita vero
         repellat aperiam mollitia porro! Ad, rem voluptatum.
       </template>
-    </FullWidthElement>
+    </FullWidthBasic>
   </div>
 </template>

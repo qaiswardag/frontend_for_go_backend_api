@@ -2,7 +2,9 @@
 
 <template>
   <div>
-    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Not found</h2>
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
+      Not found
+    </h2>
     <main class="grid min-h-full place-items-center py-24 sm:py-32 lg:px-8">
       <div class="text-center">
         <p class="text-base font-semibold">404</p>

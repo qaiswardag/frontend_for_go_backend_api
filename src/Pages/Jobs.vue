@@ -1,5 +1,6 @@
 <script setup>
-import FullWidthElement from '@/Components/Layouts/FullWidthElement.vue';
+import FullWidthBasic from '@/Components/Layouts/FullWidthBasic.vue';
+
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 
@@ -38,13 +39,11 @@ const handleGetJobs = async function () {
 
 <template>
   <div>
-    <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Jobs</h2>
+    <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
+      Jobs
+    </h2>
 
-    <FullWidthElement
-      class="bg-purple-200"
-      :descriptionArea="true"
-    >
-      <template #title>Open jobs</template>
+    <FullWidthBasic class="bg-purple-200">
       <template #content>
         <div>
           <ul class="flex flex-col gap-8">
@@ -65,9 +64,9 @@ const handleGetJobs = async function () {
           </ul>
         </div>
       </template>
-    </FullWidthElement>
+    </FullWidthBasic>
 
-    <FullWidthElement
+    <FullWidthBasic
       class="bg-yellow-300"
       :descriptionArea="true"
     >
@@ -92,6 +91,6 @@ const handleGetJobs = async function () {
           </ul>
         </div>
       </template>
-    </FullWidthElement>
+    </FullWidthBasic>
   </div>
 </template>
