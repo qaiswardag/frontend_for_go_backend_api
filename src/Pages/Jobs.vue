@@ -39,8 +39,33 @@ const handleGetJobs = async function () {
 <template>
   <div>
     <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Jobs</h2>
+
     <FullWidthElement :descriptionArea="true">
-      <template #title>Lorem ipsum</template>
+      <template #title>Open jobs</template>
+      <template #content>
+        <div>
+          <ul class="flex flex-col gap-8">
+            <li
+              class="rounded bg-red-200 overflow-hidden whitespace-pre-line flex-1 h-auto px-4 py-12"
+            >
+              <div>
+                <p class="myPrimaryParagraph">Title here</p>
+              </div>
+            </li>
+            <li
+              class="rounded bg-red-200 overflow-hidden whitespace-pre-line flex-1 h-auto px-4 py-12"
+            >
+              <div>
+                <p class="myPrimaryParagraph">Title here</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </template>
+    </FullWidthElement>
+
+    <FullWidthElement :descriptionArea="true">
+      <template #title>Drafts</template>
       <template #content>
         <div>
           <ul class="flex flex-col gap-8">
