@@ -25,7 +25,7 @@
   }
 
   .myPrimaryWidthScreenModule {
-    @apply myModulePyMargin myModulePadding bg-purple-200;
+    @apply myModulePyMargin myModulePadding;
   }
   .myPrimaryModule {
     @apply max-w-7xl mx-auto myModulePyMargin myModulePadding;

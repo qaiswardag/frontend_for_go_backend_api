@@ -74,7 +74,10 @@ const handleForm = async function () {
 <template>
   <div>
     <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Sign up</h2>
-    <FullWidthElement :descriptionArea="true">
+    <FullWidthElement
+      class="bg-purple-200"
+      :descriptionArea="true"
+    >
       <template #title>Lorem ipsum</template>
       <template #content>
         <!-- Form # start -->

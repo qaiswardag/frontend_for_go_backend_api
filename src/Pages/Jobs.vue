@@ -40,7 +40,10 @@ const handleGetJobs = async function () {
   <div>
     <h2 class="myTertiaryHeader text-center py-12 bg-slate-300">Jobs</h2>
 
-    <FullWidthElement :descriptionArea="true">
+    <FullWidthElement
+      class="bg-purple-200"
+      :descriptionArea="true"
+    >
       <template #title>Open jobs</template>
       <template #content>
         <div>
@@ -64,7 +67,10 @@ const handleGetJobs = async function () {
       </template>
     </FullWidthElement>
 
-    <FullWidthElement :descriptionArea="true">
+    <FullWidthElement
+      class="bg-yellow-300"
+      :descriptionArea="true"
+    >
       <template #title>Drafts</template>
       <template #content>
         <div>
