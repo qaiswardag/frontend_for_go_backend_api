@@ -147,7 +147,7 @@ const getUser = computed(() => {
 
         <RouterLink
           class="text-myPrimaryDarkGrayColor group flex items-center pl-6 pr-2 py-4 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50"
-          :to="{ name: 'Password' }"
+          :to="{ name: 'ResetPassword' }"
         >
           <span class="material-symbols-outlined"> key </span>
           <span> Reset password </span>

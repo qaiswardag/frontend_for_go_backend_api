@@ -4,6 +4,7 @@ import FullWidthBasic from '@/Components/Layouts/FullWidthBasic.vue';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
+import ApplicationLogo from '@/Components/Logos/ApplicationLogo.vue';
 
 const userStore = useUserStore();
 
@@ -72,6 +73,9 @@ const handleForm = async function () {
     </h2>
     <FullWidthBasic class="bg-purple-200">
       <template #content>
+        <div class="flex items-center justify-center">
+          <ApplicationLogo></ApplicationLogo>
+        </div>
         <!-- Form # start -->
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
           <h2

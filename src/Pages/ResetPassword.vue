@@ -1,6 +1,6 @@
 <script setup>
 import FullWidthBasic from '@/Components/Layouts/FullWidthBasic.vue';
-
+import ApplicationLogo from '@/Components/Logos/ApplicationLogo.vue';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 
@@ -49,8 +49,10 @@ const handleForm = async function () {
     </h2>
     <FullWidthBasic class="bg-purple-200">
       <template #content>
+        <div class="flex items-center justify-center">
+          <ApplicationLogo></ApplicationLogo>
+        </div>
         <!-- Form # start -->
-
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
           <h2
             class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
