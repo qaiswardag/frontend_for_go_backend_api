@@ -141,7 +141,7 @@ const getUser = computed(() => {
           class="text-myPrimaryDarkGrayColor group flex items-center pl-6 pr-2 py-4 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50"
           :to="{ name: 'SignUp' }"
         >
-          <span class="material-symbols-outlined"> token </span>
+          <span class="material-symbols-outlined"> check </span>
           <span> Sign up </span>
         </RouterLink>
 
@@ -149,7 +149,7 @@ const getUser = computed(() => {
           class="text-myPrimaryDarkGrayColor group flex items-center pl-6 pr-2 py-4 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50"
           :to="{ name: 'Password' }"
         >
-          <span class="material-symbols-outlined"> undo </span>
+          <span class="material-symbols-outlined"> key </span>
           <span> Reset password </span>
         </RouterLink>
         <div class="px-2 pt-4 rounded-none">
@@ -164,7 +164,7 @@ const getUser = computed(() => {
           type="button"
           @click="handleLogOut"
         >
-          <span class="material-symbols-outlined"> call_missed_outgoing </span>
+          <span class="material-symbols-outlined"> arrow_right_alt </span>
           <span> Sign out </span>
         </button>
       </div>
