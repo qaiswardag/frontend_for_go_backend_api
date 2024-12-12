@@ -105,15 +105,7 @@ export const useUserStore = defineStore('user', {
         );
 
         // Update state directly instead of committing mutations
-        this.setUser({
-          handleData: handleDataSignOut,
-          fetchedData: fetchedDataSignOut,
-          isError: isErrorSignOut,
-          error: errorSignOut,
-          errors: errorsSignOut,
-          isLoading: isLoadingSignOut,
-          isSuccess: isSuccessSignOut,
-        });
+        this.setUser(null);
       } catch (error) {
         console.error(`Error:`, error);
       }
