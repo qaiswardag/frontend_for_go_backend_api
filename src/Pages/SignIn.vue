@@ -1,68 +1,22 @@
 <script setup>
 import FullWidthBasic from '@/Components/Layouts/FullWidthBasic.vue';
-
-import { vueFetch } from '@/composables/vueFetch';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useUserStore } from '@/stores/user';
 import ApplicationLogo from '@/Components/Logos/ApplicationLogo.vue';
 
 const userStore = useUserStore();
 
-const {
-  handleData,
-  fetchedData,
-  isError,
-  error,
-  errors,
-  isLoading,
-  isSuccess,
-} = vueFetch();
+const getUser = computed(() => {
+  return userStore.getUser;
+});
 
-const email = ref('jd@myissue.dk');
-const password = ref('123456');
+const userForm = ref({
+  email: 'jd@myissue.dk',
+  password: '123456',
+});
 
 const handleForm = async function () {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
-  try {
-    userStore.setUser({
-      fetchedData,
-      isError,
-      error,
-      errors,
-      isLoading,
-      isSuccess,
-    });
-
-    const data = await handleData(
-      `${backendUrl}/user/sign-in`,
-      {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email.value,
-          password: password.value,
-        }),
-      },
-      {
-        additionalCallTime: 1000,
-      }
-    );
-
-    userStore.setUser({
-      fetchedData,
-      isError,
-      error,
-      errors,
-      isLoading,
-      isSuccess,
-    });
-  } catch (error) {
-    console.error(`Error:`, error);
-  }
+  userStore.setLoadUser(userForm.value);
 };
 </script>
 
@@ -83,17 +37,6 @@ const handleForm = async function () {
           >
             Sign in to your account
           </h2>
-          <p class="myPrimaryParagraph my-6 whitespace-pre">
-            type of fetchedDataGet: {{ typeof fetchedData }}
-            <br />
-            fetchedData: {{ fetchedData }}
-          </p>
-          <p class="myPrimaryParagraph my-6 whitespace-pre">
-            type of error:
-            {{ typeof error }}
-            <br />
-            error: {{ error }}
-          </p>
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
@@ -110,7 +53,7 @@ const handleForm = async function () {
                 >
                 <div class="mt-2">
                   <input
-                    v-model="email"
+                    v-model="userForm.email"
                     id="email"
                     name="email"
                     type="email"
@@ -128,7 +71,7 @@ const handleForm = async function () {
                 >
                 <div class="mt-2">
                   <input
-                    v-model="password"
+                    v-model="userForm.password"
                     id="password"
                     name="password"
                     type="password"
@@ -156,22 +99,26 @@ const handleForm = async function () {
               <div>
                 <button
                   type="button"
-                  :disabled="isLoading"
+                  :disabled="getUser && getUser.isLoading"
                   @click="handleForm"
                   :class="{
-                    'opacity-25 cursor-default': isLoading,
+                    'opacity-25 cursor-default': getUser && getUser.isLoading,
                   }"
                   class="myPrimaryButton w-full"
                 >
-                  <template v-if="!isLoading">
+                  <template v-if="getUser && !getUser.isLoading">
                     <span> Submit </span>
                   </template>
-                  <template v-if="isLoading">Loading.. </template>
+                  <template v-if="getUser && getUser.isLoading"
+                    >Loading..
+                  </template>
                 </button>
               </div>
 
-              <template v-if="error">
-                <p class="myPrimaryParagraphError">{{ error }}</p>
+              <template v-if="getUser && getUser.error">
+                <p class="myPrimaryParagraphError">
+                  {{ getUser && getUser.error }}
+                </p>
               </template>
             </form>
           </div>

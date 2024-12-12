@@ -21,14 +21,36 @@ const {
   isSuccess: isSuccessSignOut,
 } = vueFetch();
 
+const {
+  handleData: handleDataSignIn,
+  fetchedData: fetchedDataSignIn,
+  isError: isErrorSignIn,
+  error: errorSignIn,
+  errors: errorsSignIn,
+  isLoading: isLoadingSignIn,
+  isSuccess: isSuccessSignIn,
+} = vueFetch();
+
+const {
+  handleData: handleDataSignUp,
+  fetchedData: fetchedDataSignUp,
+  isError: isErrorSignUp,
+  error: errorSignUp,
+  errors: errorsSignUp,
+  isLoading: isLoadingSignUp,
+  isSuccess: isSuccessSignUp,
+} = vueFetch();
+
 export const useUserStore = defineStore('user', {
   state: () => ({
     user: null,
     isLoading: false,
+    backendUrl: import.meta.env.VITE_BACKEND_URL,
   }),
   getters: {
     getUser: (state) => state.user,
     getIsLoading: (state) => state.isLoading,
+    getBackendUrl: (state) => state.backendUrl,
   },
   actions: {
     setUser(payload) {
@@ -37,9 +59,104 @@ export const useUserStore = defineStore('user', {
     setIsLoading(payload) {
       this.isLoading = payload;
     },
+    setBackendUrl(payload) {
+      this.backendUrl = payload;
+    },
 
+    // Sign in user
+    async setLoadUserSignIn(userForm) {
+      const { email, password } = userForm;
+      try {
+        this.setUser({
+          fetchedData: fetchedDataSignIn,
+          isError: isErrorSignIn,
+          error: errorSignIn,
+          errors: errorsSignIn,
+          isLoading: isLoadingSignIn,
+          isSuccess: isSuccessSignIn,
+        });
+
+        const data = await handleDataSignIn(
+          `${this.getBackendUrl}/user/sign-in`,
+          {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+            }),
+          },
+          {
+            additionalCallTime: 1000,
+          }
+        );
+
+        this.setUser({
+          fetchedData: fetchedDataSignIn,
+          isError: isErrorSignIn,
+          error: errorSignIn,
+          errors: errorsSignIn,
+          isLoading: isLoadingSignIn,
+          isSuccess: isSuccessSignIn,
+        });
+      } catch (error) {
+        console.error(`Error:`, error);
+      }
+    },
+
+    // Sign up user
+    async setLoadUserSignUp(userForm) {
+      const { username, firstName, lastName, email, password } = userForm;
+      console.log('username eeer:', username);
+      try {
+        this.setUser({
+          fetchedData: fetchedDataSignUp,
+          isError: isErrorSignUp,
+          error: errorSignUp,
+          errors: errorsSignUp,
+          isLoading: isLoadingSignUp,
+          isSuccess: isSuccessSignUp,
+        });
+
+        const data = await handleDataSignUp(
+          `${this.getBackendUrl}/user/sign-up`,
+          {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username: username,
+              first_name: firstName,
+              last_name: lastName,
+              email: email,
+              password: password,
+            }),
+          },
+          {
+            additionalCallTime: 1000,
+          }
+        );
+
+        this.setUser({
+          fetchedData: fetchedDataSignUp,
+          isError: isErrorSignUp,
+          error: errorSignUp,
+          errors: errorsSignUp,
+          isLoading: isLoadingSignUp,
+          isSuccess: isSuccessSignUp,
+        });
+      } catch (error) {
+        console.error(`Error:`, error);
+      }
+    },
+
+    // Get authenticated user
     async setLoadUser() {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL;
       this.setUser({
         fetchedData: fetchedDataUser,
         isError: isErrorUser,
@@ -50,7 +167,7 @@ export const useUserStore = defineStore('user', {
       });
       try {
         await handleDataUser(
-          `${backendUrl}/user/user`,
+          `${this.getBackendUrl}/user/user`,
           {
             credentials: 'include',
             headers: {
@@ -75,7 +192,7 @@ export const useUserStore = defineStore('user', {
       }
     },
 
-    // sign out
+    // Sign out user
     async setUserSignOut(payload) {
       this.setUser({
         handleData: handleDataSignOut,
@@ -87,11 +204,9 @@ export const useUserStore = defineStore('user', {
         isSuccess: isSuccessSignOut,
       });
 
-      const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
       try {
         const data = await handleDataSignOut(
-          `${backendUrl}/user/sign-out`,
+          `${this.getBackendUrl}/user/sign-out`,
           {
             method: 'POST',
             credentials: 'include',

@@ -4,41 +4,11 @@ import ApplicationLogo from '@/Components/Logos/ApplicationLogo.vue';
 import { vueFetch } from '@/composables/vueFetch';
 import { ref } from 'vue';
 
-const {
-  handleData,
-  fetchedData,
-  isError,
-  error,
-  errors,
-  isLoading,
-  isSuccess,
-} = vueFetch();
-
-const password = ref('123456');
-
+const userForm = ref({
+  password: '',
+});
 const handleForm = async function () {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
-  try {
-    const data = await handleData(
-      `${backendUrl}/user/reset-password`,
-      {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          password: password.value,
-        }),
-      },
-      {
-        additionalCallTime: 1000,
-      }
-    );
-  } catch (error) {
-    console.error(`Error:`, error);
-  }
+  return;
 };
 </script>
 
@@ -59,17 +29,6 @@ const handleForm = async function () {
           >
             Reset password
           </h2>
-          <p class="myPrimaryParagraph my-6 whitespace-pre">
-            type of fetchedDataGet: {{ typeof fetchedData }}
-            <br />
-            fetchedData: {{ fetchedData }}
-          </p>
-          <p class="myPrimaryParagraph my-6 whitespace-pre">
-            type of error:
-            {{ typeof error }}
-            <br />
-            error: {{ error }}
-          </p>
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
@@ -86,7 +45,7 @@ const handleForm = async function () {
                 >
                 <div class="mt-2">
                   <input
-                    v-model="password"
+                    v-model="userForm.password"
                     id="password"
                     name="password"
                     type="password"
@@ -110,27 +69,6 @@ const handleForm = async function () {
                   >
                 </div>
               </div>
-
-              <div>
-                <button
-                  type="button"
-                  :disabled="isLoading"
-                  @click="handleForm"
-                  :class="{
-                    'opacity-25 cursor-default': isLoading,
-                  }"
-                  class="myPrimaryButton w-full"
-                >
-                  <template v-if="!isLoading">
-                    <span> Submit </span>
-                  </template>
-                  <template v-if="isLoading">Loading.. </template>
-                </button>
-              </div>
-
-              <template v-if="error">
-                <p class="myPrimaryParagraphError">{{ error }}</p>
-              </template>
             </form>
           </div>
         </div>
