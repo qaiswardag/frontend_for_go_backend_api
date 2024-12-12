@@ -18,31 +18,10 @@ const handleLogOut = async function () {
   <div class="flex w-full h-full">
     <header class="flex items-center justify-end text-sm h-full w-full">
       <nav
-        class="hidden md:block w-5/6"
+        class="hidden md:block w-11/12"
         aria-label="Global"
       >
         <div class="flex items-center justify-end myPrimaryGap pr-4">
-          <RouterLink
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-            :to="{ name: 'Home' }"
-          >
-            Home
-          </RouterLink>
-
-          <RouterLink
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-            :to="{ name: 'Dashboard' }"
-          >
-            Dashboard
-          </RouterLink>
-
-          <RouterLink
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-            :to="{ name: 'Jobs' }"
-          >
-            Jobs
-          </RouterLink>
-
           <RouterLink
             class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
             :to="{ name: 'SignIn' }"
@@ -57,13 +36,6 @@ const handleLogOut = async function () {
             Sign up
           </RouterLink>
 
-          <RouterLink
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-            :to="{ name: 'Password' }"
-          >
-            Reset password
-          </RouterLink>
-
           <button
             class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
             type="button"
@@ -75,7 +47,7 @@ const handleLogOut = async function () {
       </nav>
 
       <!-- User # start -->
-      <div class="w-1/6 text-sm h-full flex items-center justify-end">
+      <div class="w-1/12 text-sm h-full flex items-center justify-end">
         <div
           class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
         >

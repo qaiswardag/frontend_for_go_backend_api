@@ -19,7 +19,7 @@
           Sorry, we couldn’t find the page you’re looking for.
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <RouterLink :to="{ name: 'Home' }"> Go back home </RouterLink>
+          <RouterLink :to="{ name: 'Account' }"> Go to Account </RouterLink>
         </div>
       </div>
     </main>

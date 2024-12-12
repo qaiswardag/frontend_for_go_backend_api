@@ -119,7 +119,7 @@ onBeforeMount(() => {
     </PageBuilderModal>
 
     <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
-      Home
+      Account
     </h2>
     <FullWidthBasic class="bg-purple-200">
       <template #description>
