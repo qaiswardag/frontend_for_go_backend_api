@@ -95,7 +95,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedData: fetchedDataSignIn,
+          fetchedDataSignIn,
           isErrorSignIn,
           errorSignIn,
           errorsSignIn,
@@ -113,7 +113,7 @@ export const useUserStore = defineStore('user', {
       console.log('username eeer:', username);
       try {
         this.setUser({
-          fetchedData: fetchedDataSignUp,
+          fetchedDataSignUp,
           isErrorSignUp,
           errorSignUp,
           errorsSignUp,
@@ -143,7 +143,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedData: fetchedDataSignUp,
+          fetchedDataSignUp,
           isErrorSignUp,
           errorSignUp,
           errorsSignUp,
@@ -158,7 +158,7 @@ export const useUserStore = defineStore('user', {
     // Get authenticated user
     async setLoadUser() {
       this.setUser({
-        fetchedData: fetchedDataUser,
+        fetchedDataUser,
         isErrorUser,
         errorUser,
         errorsUser,
@@ -180,7 +180,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedData: fetchedDataUser,
+          fetchedDataUser,
           isErrorUser,
           errorUser,
           errorsUser,
@@ -196,7 +196,7 @@ export const useUserStore = defineStore('user', {
     async setUserSignOut(payload) {
       this.setUser({
         handleData: handleDataSignOut,
-        fetchedData: fetchedDataSignOut,
+        fetchedDataSignOut,
         isErrorSignOut,
         errorSignOut,
         errorsSignOut,
@@ -215,7 +215,7 @@ export const useUserStore = defineStore('user', {
             },
           },
           {
-            additionalCallTime: 1000,
+            additionalCallTime: 2500,
           }
         );
 
