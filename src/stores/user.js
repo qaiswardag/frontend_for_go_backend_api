@@ -44,11 +44,13 @@ const {
 export const useUserStore = defineStore('user', {
   state: () => ({
     user: null,
+    isAuthenticated: null,
     isLoading: false,
     backendUrl: import.meta.env.VITE_BACKEND_URL,
   }),
   getters: {
     getUser: (state) => state.user,
+    getIsAuthenticated: (state) => state.isAuthenticated,
     getIsLoading: (state) => state.isLoading,
     getBackendUrl: (state) => state.backendUrl,
   },
@@ -58,6 +60,9 @@ export const useUserStore = defineStore('user', {
     },
     setIsLoading(payload) {
       this.isLoading = payload;
+    },
+    setIsAuthenticated(payload) {
+      this.isAuthenticated = payload;
     },
     setBackendUrl(payload) {
       this.backendUrl = payload;
