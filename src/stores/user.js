@@ -68,12 +68,12 @@ export const useUserStore = defineStore('user', {
       const { email, password } = userForm;
       try {
         this.setUser({
-          fetchedData: fetchedDataSignIn,
-          isError: isErrorSignIn,
-          error: errorSignIn,
-          errors: errorsSignIn,
-          isLoading: isLoadingSignIn,
-          isSuccess: isSuccessSignIn,
+          fetchedDataSignIn,
+          isErrorSignIn,
+          errorSignIn,
+          errorsSignIn,
+          isLoadingSignIn,
+          isSuccessSignIn,
         });
 
         const data = await handleDataSignIn(
@@ -96,11 +96,11 @@ export const useUserStore = defineStore('user', {
 
         this.setUser({
           fetchedData: fetchedDataSignIn,
-          isError: isErrorSignIn,
-          error: errorSignIn,
-          errors: errorsSignIn,
-          isLoading: isLoadingSignIn,
-          isSuccess: isSuccessSignIn,
+          isErrorSignIn,
+          errorSignIn,
+          errorsSignIn,
+          isLoadingSignIn,
+          isSuccessSignIn,
         });
       } catch (error) {
         console.error(`Error:`, error);
@@ -114,11 +114,11 @@ export const useUserStore = defineStore('user', {
       try {
         this.setUser({
           fetchedData: fetchedDataSignUp,
-          isError: isErrorSignUp,
-          error: errorSignUp,
-          errors: errorsSignUp,
-          isLoading: isLoadingSignUp,
-          isSuccess: isSuccessSignUp,
+          isErrorSignUp,
+          errorSignUp,
+          errorsSignUp,
+          isLoadingSignUp,
+          isSuccessSignUp,
         });
 
         const data = await handleDataSignUp(
@@ -144,11 +144,11 @@ export const useUserStore = defineStore('user', {
 
         this.setUser({
           fetchedData: fetchedDataSignUp,
-          isError: isErrorSignUp,
-          error: errorSignUp,
-          errors: errorsSignUp,
-          isLoading: isLoadingSignUp,
-          isSuccess: isSuccessSignUp,
+          isErrorSignUp,
+          errorSignUp,
+          errorsSignUp,
+          isLoadingSignUp,
+          isSuccessSignUp,
         });
       } catch (error) {
         console.error(`Error:`, error);
@@ -159,11 +159,11 @@ export const useUserStore = defineStore('user', {
     async setLoadUser() {
       this.setUser({
         fetchedData: fetchedDataUser,
-        isError: isErrorUser,
-        error: errorUser,
-        errors: errorsUser,
-        isLoading: isLoadingUser,
-        isSuccess: isSuccessUser,
+        isErrorUser,
+        errorUser,
+        errorsUser,
+        isLoadingUser,
+        isSuccessUser,
       });
       try {
         await handleDataUser(
@@ -181,11 +181,11 @@ export const useUserStore = defineStore('user', {
 
         this.setUser({
           fetchedData: fetchedDataUser,
-          isError: isErrorUser,
-          error: errorUser,
-          errors: errorsUser,
-          isLoading: isLoadingUser,
-          isSuccess: isSuccessUser,
+          isErrorUser,
+          errorUser,
+          errorsUser,
+          isLoadingUser,
+          isSuccessUser,
         });
       } catch (error) {
         console.error(`Error`, error);
@@ -197,11 +197,11 @@ export const useUserStore = defineStore('user', {
       this.setUser({
         handleData: handleDataSignOut,
         fetchedData: fetchedDataSignOut,
-        isError: isErrorSignOut,
-        error: errorSignOut,
-        errors: errorsSignOut,
-        isLoading: isLoadingSignOut,
-        isSuccess: isSuccessSignOut,
+        isErrorSignOut,
+        errorSignOut,
+        errorsSignOut,
+        isLoadingSignOut,
+        isSuccessSignOut,
       });
 
       try {
