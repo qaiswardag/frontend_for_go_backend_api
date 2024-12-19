@@ -35,14 +35,6 @@ const handleLogOut = async function () {
           >
             Sign up
           </RouterLink>
-
-          <button
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-            type="button"
-            @click="handleLogOut"
-          >
-            Sign out
-          </button>
           <span
             class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
           >
