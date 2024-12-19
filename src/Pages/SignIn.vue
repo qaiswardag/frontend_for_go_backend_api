@@ -16,7 +16,7 @@ const userForm = ref({
 });
 
 const handleForm = async function () {
-  userStore.setLoadUser(userForm.value);
+  userStore.setLoadUserSignIn(userForm.value);
 };
 </script>
 
@@ -99,25 +99,26 @@ const handleForm = async function () {
               <div>
                 <button
                   type="button"
-                  :disabled="getUser && getUser.isLoading"
+                  :disabled="getUser && getUser.isLoadingSignIn"
                   @click="handleForm"
                   :class="{
-                    'opacity-25 cursor-default': getUser && getUser.isLoading,
+                    'opacity-25 cursor-default':
+                      getUser && getUser.isLoadingSignIn,
                   }"
                   class="myPrimaryButton w-full"
                 >
-                  <template v-if="getUser && !getUser.isLoading">
+                  <template v-if="getUser && !getUser.isLoadingSignIn">
                     <span> Submit </span>
                   </template>
-                  <template v-if="getUser && getUser.isLoading"
+                  <template v-if="getUser && getUser.isLoadingSignIn"
                     >Loading..
                   </template>
                 </button>
               </div>
 
-              <template v-if="getUser && getUser.error">
+              <template v-if="getUser && getUser.errorSignIn">
                 <p class="myPrimaryParagraphError">
-                  {{ getUser && getUser.error }}
+                  {{ getUser && getUser.errorSignIn }}
                 </p>
               </template>
             </form>

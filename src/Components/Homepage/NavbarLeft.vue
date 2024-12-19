@@ -165,7 +165,12 @@ const getUser = computed(() => {
           @click="handleLogOut"
         >
           <span class="material-symbols-outlined"> arrow_right_alt </span>
-          <span> Sign out </span>
+          <template v-if="getUser && !getUser.isLoadingSignOut">
+            <span> Sign out </span>
+          </template>
+          <template v-if="getUser && getUser.isLoadingSignOut"
+            >Loading..
+          </template>
         </button>
       </div>
     </nav>
