@@ -74,7 +74,7 @@ const getIsAuthenticated = computed(() => {
             <div
               class="rounded-full min-h-[3rem] flex items-center justify-center bg-gray-50 px-4"
             >
-              <span> Signed out </span>
+              <span> Signed out! </span>
             </div>
           </template>
           <!--Signed out user # end -->
@@ -167,7 +167,7 @@ const getIsAuthenticated = computed(() => {
           class="text-myPrimaryDarkGrayColor group flex items-center pl-6 pr-2 py-4 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50"
           :to="{ name: 'SignUp' }"
         >
-          <span class="material-symbols-outlined"> check </span>
+          <span class="material-symbols-outlined"> arrow_outward </span>
           <span> Sign up </span>
         </RouterLink>
 
