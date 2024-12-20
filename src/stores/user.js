@@ -49,6 +49,7 @@ export const useUserStore = defineStore('user', {
     backendUrl: import.meta.env.VITE_BACKEND_URL,
   }),
   getters: {
+    // Retrieves the authenticated user. Data flow: getUser, fetchedData and user
     getUser: (state) => state.user,
     getIsAuthenticated: (state) => state.isAuthenticated,
     getIsLoading: (state) => state.isLoading,

@@ -8,10 +8,6 @@ const userStore = useUserStore();
 const getUser = computed(() => {
   return userStore.getUser;
 });
-
-const handleLogOut = async function () {
-  userStore.setUserSignOut();
-};
 </script>
 
 <template>
