@@ -66,6 +66,10 @@ const getIsAuthenticated = computed(() => {
             v-if="
               !getUser === null ||
               (getUser &&
+                getUser.fetchedData &&
+                !getUser.isLoadingUser &&
+                !getUser.fetchedData.user) ||
+              (getUser &&
                 !getUser.isLoadingUser &&
                 (getUser.fetchedData === null ||
                   (getUser.fetchedData && getUser.fetchedData.user === null)))
