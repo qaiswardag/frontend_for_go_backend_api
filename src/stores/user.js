@@ -44,7 +44,7 @@ const {
 export const useUserStore = defineStore('user', {
   state: () => ({
     user: null,
-    isAuthenticated: null,
+    isAuthenticated: false,
     isLoading: false,
     backendUrl: import.meta.env.VITE_BACKEND_URL,
   }),
@@ -73,7 +73,7 @@ export const useUserStore = defineStore('user', {
       const { email, password } = userForm;
       try {
         this.setUser({
-          fetchedDataSignIn,
+          fetchedData: fetchedDataSignIn,
           isErrorSignIn,
           errorSignIn,
           errorsSignIn,
@@ -100,7 +100,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedDataSignIn,
+          fetchedData: fetchedDataSignIn,
           isErrorSignIn,
           errorSignIn,
           errorsSignIn,
@@ -115,10 +115,9 @@ export const useUserStore = defineStore('user', {
     // Sign up user
     async setLoadUserSignUp(userForm) {
       const { username, firstName, lastName, email, password } = userForm;
-      console.log('username eeer:', username);
       try {
         this.setUser({
-          fetchedDataSignUp,
+          fetchedData: fetchedDataSignUp,
           isErrorSignUp,
           errorSignUp,
           errorsSignUp,
@@ -148,7 +147,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedDataSignUp,
+          fetchedData: fetchedDataSignUp,
           isErrorSignUp,
           errorSignUp,
           errorsSignUp,
@@ -163,7 +162,7 @@ export const useUserStore = defineStore('user', {
     // Get authenticated user
     async setLoadUser() {
       this.setUser({
-        fetchedDataUser,
+        fetchedData: fetchedDataUser,
         isErrorUser,
         errorUser,
         errorsUser,
@@ -185,7 +184,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedDataUser,
+          fetchedData: fetchedDataUser,
           isErrorUser,
           errorUser,
           errorsUser,
@@ -201,7 +200,7 @@ export const useUserStore = defineStore('user', {
     async setUserSignOut(payload) {
       this.setUser({
         handleData: handleDataSignOut,
-        fetchedDataSignOut,
+        fetchedData: fetchedDataSignOut,
         isErrorSignOut,
         errorSignOut,
         errorsSignOut,
@@ -220,12 +219,19 @@ export const useUserStore = defineStore('user', {
             },
           },
           {
-            additionalCallTime: 2500,
+            additionalCallTime: 1000,
           }
         );
 
-        // Update state directly instead of committing mutations
-        this.setUser(null);
+        this.setUser({
+          handleData: handleDataSignOut,
+          fetchedData: fetchedDataSignOut,
+          isErrorSignOut,
+          errorSignOut,
+          errorsSignOut,
+          isLoadingSignOut,
+          isSuccessSignOut,
+        });
       } catch (error) {
         console.error(`Error:`, error);
       }

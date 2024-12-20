@@ -35,18 +35,6 @@ const handleLogOut = async function () {
           >
             Sign up
           </RouterLink>
-          <span
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-          >
-            <span class="font-medium"> Typeof </span>
-            {{ JSON.stringify(typeof getUser) }}
-          </span>
-          <span
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-          >
-            <span class="font-medium"> Is NULL </span>
-            {{ JSON.stringify(getUser === null) }}
-          </span>
         </div>
       </nav>
 

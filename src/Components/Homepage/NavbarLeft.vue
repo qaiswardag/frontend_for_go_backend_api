@@ -22,6 +22,9 @@ const handleLogOut = async function () {
 const getUser = computed(() => {
   return userStore.getUser;
 });
+const getIsAuthenticated = computed(() => {
+  return userStore.getIsAuthenticated;
+});
 </script>
 
 <template>
@@ -38,7 +41,10 @@ const getUser = computed(() => {
         <div
           class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
         >
-          <template v-if="getUser && getUser.isLoading && !getUser.isError">
+          <!-- Loading user # start -->
+          <template
+            v-if="getUser && getUser.isLoadingUser && !getUser.isErrorUser"
+          >
             <div
               class="rounded-l-full min-h-[3rem] flex items-center justify-center"
             >
@@ -54,6 +60,25 @@ const getUser = computed(() => {
               </span>
             </div>
           </template>
+          <!-- Loading user # end -->
+          <!-- Signed out user # start -->
+          <template
+            v-if="
+              !getUser === null ||
+              (getUser &&
+                !getUser.isLoadingUser &&
+                (getUser.fetchedData === null ||
+                  (getUser.fetchedData && getUser.fetchedData.user === null)))
+            "
+          >
+            <div
+              class="rounded-full min-h-[3rem] flex items-center justify-center bg-gray-50 px-4"
+            >
+              <span> Signed out </span>
+            </div>
+          </template>
+          <!--Signed out user # end -->
+          <!-- Signed in user # start -->
           <template
             v-if="
               getUser &&
@@ -84,6 +109,7 @@ const getUser = computed(() => {
               </div>
             </div>
           </template>
+          <!-- Signed in user # end -->
         </div>
       </div>
       <!-- User # end -->
@@ -156,9 +182,10 @@ const getUser = computed(() => {
           <p
             class="myPrimaryParagraph text-myPrimaryMediumGrayColor italic text-xs pt-2 pb-2 border-t"
           >
-            End session
+            Session
           </p>
         </div>
+        <p>getIsAuthenticated: {{ JSON.stringify(getIsAuthenticated) }}</p>
         <button
           class="w-full text-myPrimaryDarkGrayColor group flex items-center pl-6 pr-2 py-4 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50"
           type="button"
