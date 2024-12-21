@@ -1,19 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { useUserStore } from '@/stores/user';
-import UserBadge from '@/Components/Auth/UserBadge/UserBadge.vue';
-import { computed } from 'vue';
-import SmallUniversalSpinner from '@/Components/Loaders/SmallUniversalSpinner.vue';
-
-const userStore = useUserStore();
-
-const getUser = computed(() => {
-  return userStore.getUser;
-});
-
-const handleLogOut = async function () {
-  userStore.setUserSignOut();
-};
+import UserBadge from '@/Components/Auth/UserBadge.vue';
+import SignOut from '@/Components/Auth/SignOut.vue';
 </script>
 
 <template>
@@ -38,14 +27,7 @@ const handleLogOut = async function () {
             Sign up
           </RouterLink>
 
-          <button
-            class="text-myPrimaryDarkGrayColor group flex items-center py-2 px-6 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
-            type="button"
-            :disabled="getUser && getUser.isLoadingSignOut"
-            @click="handleLogOut"
-          >
-            <span> Sign out </span>
-          </button>
+          <SignOut layoutDesign="topMainMenu"></SignOut>
         </div>
       </nav>
 

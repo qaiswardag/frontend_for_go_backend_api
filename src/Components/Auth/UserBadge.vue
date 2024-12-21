@@ -20,7 +20,7 @@ const getUser = computed(() => {
   <div class="text-sm h-full flex items-center justify-center">
     <div
       :class="{
-        'border-l-2 border-myPrimaryLightMediumGrayColor ': borderLeft,
+        'border-l border-myPrimaryLightMediumGrayColor ': borderLeft,
       }"
       class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
     >

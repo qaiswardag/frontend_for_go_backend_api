@@ -1,21 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { useUserStore } from '@/stores/user';
-import UserBadge from '@/Components/Auth/UserBadge/UserBadge.vue';
-import { computed } from 'vue';
-
-const userStore = useUserStore();
-
-const handleLogOut = async function () {
-  userStore.setUserSignOut();
-};
-
-const getUser = computed(() => {
-  return userStore.getUser;
-});
-const getIsAuthenticated = computed(() => {
-  return userStore.getIsAuthenticated;
-});
+import UserBadge from '@/Components/Auth/UserBadge.vue';
+import SignOut from '@/Components/Auth/SignOut.vue';
 </script>
 
 <template>
@@ -100,20 +86,7 @@ const getIsAuthenticated = computed(() => {
             Session
           </p>
         </div>
-        <p>getIsAuthenticated: {{ JSON.stringify(getIsAuthenticated) }}</p>
-        <button
-          class="w-full text-myPrimaryDarkGrayColor group flex items-center pl-6 pr-2 py-4 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50"
-          type="button"
-          @click="handleLogOut"
-        >
-          <span class="material-symbols-outlined"> arrow_right_alt </span>
-          <template v-if="getUser && !getUser.isLoadingSignOut">
-            <span> Sign out </span>
-          </template>
-          <template v-if="getUser && getUser.isLoadingSignOut"
-            >Loading..
-          </template>
-        </button>
+        <SignOut layoutDesign="leftSidebar"></SignOut>
       </div>
     </nav>
   </div>
