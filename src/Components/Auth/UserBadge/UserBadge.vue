@@ -60,12 +60,9 @@ const getUser = computed(() => {
           class="rounded-l-full min-h-[3rem] flex items-center justify-center"
         >
           <span class="flex justify-center items-center h-10 w-10">
-            <span class="relative flex justify-center items-center h-4 w-4">
+            <span class="relative flex justify-center items-center h-3 w-3">
               <span
-                class="absolute inline-flex h-full w-full rounded-full bg-myPrimaryErrorColor opacity-10"
-              ></span>
-              <span
-                class="relative inline-flex rounded-full h-3 w-3 bg-myPrimaryErrorColor"
+                class="relative inline-flex rounded-full h-3 w-3 bg-red-400"
               ></span>
             </span>
           </span>
