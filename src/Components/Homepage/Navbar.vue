@@ -38,16 +38,27 @@ const handleLogOut = async function () {
           </RouterLink>
 
           <button
-            class="text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 justify-center"
+            :class="{
+              'animate-pulse bg-orange-500 ':
+                getUser && getUser.isLoadingSignOut,
+              'hover:bg-myPrimaryLightGrayColor':
+                getUser && !getUser.isLoadingSignOut,
+            }"
+            class="relative text-myPrimaryDarkGrayColor group flex items-center px-4 py-2 font-normal text-base gap-3 rounded-full bg-gray-50 justify-center"
             type="button"
             @click="handleLogOut"
           >
-            <template v-if="getUser && !getUser.isLoadingSignOut">
-              <span> Sign out </span>
+            <template v-if="getUser && getUser.isLoadingSignOut">
+              <span class="flex absolute h-3 w-3 right-0">
+                <span
+                  class="animate-spin absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"
+                ></span>
+              </span>
             </template>
-            <template v-if="getUser && getUser.isLoadingSignOut"
-              >Loading..
-            </template>
+            <span> Sign out </span>
           </button>
         </div>
       </nav>
