@@ -2,7 +2,6 @@
 import { RouterLink } from 'vue-router';
 import UserBadge from '@/Components/Auth/UserBadge.vue';
 import SignOut from '@/Components/Auth/SignOut.vue';
-console.log('hiiiii');
 </script>
 
 <template>
