@@ -3,8 +3,8 @@ import { useUserStore } from '../stores/user';
 export function setupAuthGuard(router) {
   const userStore = useUserStore();
 
-  router.beforeEach((to, from, next) => {
-    userStore.setLoadUser();
+  router.beforeEach(async (to, from, next) => {
+    await userStore.setLoadUser();
 
     if (
       userStore.getUser &&
