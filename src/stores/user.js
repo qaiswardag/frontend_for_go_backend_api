@@ -49,7 +49,6 @@ export const useUserStore = defineStore('user', {
     backendUrl: import.meta.env.VITE_BACKEND_URL,
   }),
   getters: {
-    // Retrieves the authenticated user. Data flow: getUser, fetchedData and user
     getUser: (state) => state.user,
     getIsAuthenticated: (state) => state.isAuthenticated,
     getIsLoading: (state) => state.isLoading,
@@ -74,7 +73,7 @@ export const useUserStore = defineStore('user', {
       const { email, password } = userForm;
       try {
         this.setUser({
-          fetchedData: fetchedDataSignIn,
+          fetchedDataSignIn,
           isErrorSignIn,
           errorSignIn,
           errorsSignIn,
@@ -101,7 +100,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedData: fetchedDataSignIn,
+          fetchedDataSignIn,
           isErrorSignIn,
           errorSignIn,
           errorsSignIn,
@@ -118,7 +117,7 @@ export const useUserStore = defineStore('user', {
       const { username, firstName, lastName, email, password } = userForm;
       try {
         this.setUser({
-          fetchedData: fetchedDataSignUp,
+          fetchedDataSignUp,
           isErrorSignUp,
           errorSignUp,
           errorsSignUp,
@@ -148,7 +147,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedData: fetchedDataSignUp,
+          fetchedDataSignUp,
           isErrorSignUp,
           errorSignUp,
           errorsSignUp,
@@ -163,7 +162,7 @@ export const useUserStore = defineStore('user', {
     // Get authenticated user
     async setLoadUser() {
       this.setUser({
-        fetchedData: fetchedDataUser,
+        fetchedDataUser,
         isErrorUser,
         errorUser,
         errorsUser,
@@ -185,7 +184,7 @@ export const useUserStore = defineStore('user', {
         );
 
         this.setUser({
-          fetchedData: fetchedDataUser,
+          fetchedDataUser,
           isErrorUser,
           errorUser,
           errorsUser,
@@ -201,7 +200,7 @@ export const useUserStore = defineStore('user', {
     async setUserSignOut(payload) {
       this.setUser({
         handleData: handleDataSignOut,
-        fetchedData: fetchedDataSignOut,
+        fetchedDataSignOut,
         isErrorSignOut,
         errorSignOut,
         errorsSignOut,
@@ -210,7 +209,7 @@ export const useUserStore = defineStore('user', {
       });
 
       try {
-        const data = await handleDataSignOut(
+        await handleDataSignOut(
           `${this.getBackendUrl}/user/sign-out`,
           {
             method: 'POST',
@@ -226,7 +225,7 @@ export const useUserStore = defineStore('user', {
 
         this.setUser({
           handleData: handleDataSignOut,
-          fetchedData: fetchedDataSignOut,
+          fetchedDataSignOut,
           isErrorSignOut,
           errorSignOut,
           errorsSignOut,

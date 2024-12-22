@@ -47,13 +47,14 @@ const getUser = computed(() => {
         v-if="
           !getUser === null ||
           (getUser &&
-            getUser.fetchedData &&
+            getUser.fetchedDataUser &&
             !getUser.isLoadingUser &&
-            !getUser.fetchedData.user) ||
+            !getUser.fetchedDataUser.user) ||
           (getUser &&
             !getUser.isLoadingUser &&
-            (getUser.fetchedData === null ||
-              (getUser.fetchedData && getUser.fetchedData.user === null)))
+            (getUser.fetchedDataUser === null ||
+              (getUser.fetchedDataUser &&
+                getUser.fetchedDataUser.user === null)))
         "
       >
         <div
@@ -73,10 +74,10 @@ const getUser = computed(() => {
       <template
         v-if="
           getUser &&
-          getUser.fetchedData &&
-          getUser.fetchedData.user &&
-          getUser.fetchedData.user.FirstName &&
-          getUser.fetchedData.user.LastName &&
+          getUser.fetchedDataUser &&
+          getUser.fetchedDataUser.user &&
+          getUser.fetchedDataUser.user.FirstName &&
+          getUser.fetchedDataUser.user.LastName &&
           !getUser.isLoading &&
           !getUser.isError
         "
@@ -88,10 +89,14 @@ const getUser = computed(() => {
             class="text-white flex-shrink-0 gap-0.5 h-10 w-10 rounded-full bg-myPrimaryBrandColor flex justify-center items-center text-xs rounded-l-full"
           >
             <span>
-              {{ getUser.fetchedData.user.FirstName.charAt(0).toUpperCase() }}
+              {{
+                getUser.fetchedDataUser.user.FirstName.charAt(0).toUpperCase()
+              }}
             </span>
             <span>
-              {{ getUser.fetchedData.user.LastName.charAt(0).toUpperCase() }}
+              {{
+                getUser.fetchedDataUser.user.LastName.charAt(0).toUpperCase()
+              }}
             </span>
           </div>
         </div>
