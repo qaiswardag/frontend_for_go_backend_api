@@ -11,7 +11,7 @@ import Dashboard from './Pages/Dashboard.vue';
 import NotFound from './Pages/NotFound.vue';
 import Jobs from './Pages/Jobs.vue';
 import { createWebHistory, createRouter } from 'vue-router';
-import setupAuthGuard from './middleware/auth';
+import { setupAuthGuard } from './middleware/auth';
 
 const newRoutes = [
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
