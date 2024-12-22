@@ -4,6 +4,8 @@ export function setupAuthGuard(router) {
   const userStore = useUserStore();
 
   router.beforeEach((to, from, next) => {
+    userStore.setLoadUser();
+
     if (
       userStore.getUser &&
       userStore.getUser.fetchedData &&
@@ -12,7 +14,6 @@ export function setupAuthGuard(router) {
       console.log('user:', userStore.getUser.fetchedData.user);
     }
 
-    userStore.setLoadUser();
     next();
   });
 }
