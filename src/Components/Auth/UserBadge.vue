@@ -45,7 +45,8 @@ const getUser = computed(() => {
       <!-- Signed out user # start -->
       <template
         v-if="
-          !getUser === null ||
+          !getUser ||
+          (getUser && !getUser.isLoadingUser && !getUser.fetchedDataUser) ||
           (getUser &&
             getUser.fetchedDataUser &&
             !getUser.isLoadingUser &&
@@ -70,6 +71,7 @@ const getUser = computed(() => {
         </div>
       </template>
       <!--Signed out user # end -->
+
       <!-- Signed in user # start -->
       <template
         v-if="
