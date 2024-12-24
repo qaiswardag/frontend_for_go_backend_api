@@ -181,7 +181,7 @@ const handleForm = async function () {
                   class="flex flex-col gap-2 items-center justify-center myPrimaryParagraph border-y border-myPrimaryLightMediumGrayColor mt-12 py-8"
                 >
                   <span class="myPriamryParagraph italic">
-                    Successfully signed in as
+                    Successfully signed up as
                   </span>
                   <span>
                     {{ getUser.fetchedDataSignUp.user.FirstName }}
