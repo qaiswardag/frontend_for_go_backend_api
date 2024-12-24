@@ -8,10 +8,14 @@ export function setupAuthGuard(router) {
 
     if (
       userStore.getUser &&
-      userStore.getUser.fetchedData &&
-      userStore.getUser.fetchedData.user
+      userStore.getUser.fetchedDataUser &&
+      userStore.getUser.fetchedDataUser.user
     ) {
-      console.log('user:', userStore.getUser.fetchedData.user);
+      console.log(
+        'Auth:',
+        userStore.getUser.fetchedDataUser.user.FirstName,
+        userStore.getUser.fetchedDataUser.user.LastName
+      );
     }
 
     next();

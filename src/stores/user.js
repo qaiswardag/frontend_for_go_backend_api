@@ -81,7 +81,7 @@ export const useUserStore = defineStore('user', {
           isSuccessSignIn,
         });
 
-        const data = await handleDataSignIn(
+        await handleDataSignIn(
           `${this.getBackendUrl}/user/sign-in`,
           {
             method: 'POST',
@@ -125,7 +125,7 @@ export const useUserStore = defineStore('user', {
           isSuccessSignUp,
         });
 
-        const data = await handleDataSignUp(
+        await handleDataSignUp(
           `${this.getBackendUrl}/user/sign-up`,
           {
             method: 'POST',
