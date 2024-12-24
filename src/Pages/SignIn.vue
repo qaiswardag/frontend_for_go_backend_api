@@ -116,6 +116,28 @@ const handleForm = async function () {
                 </button>
               </div>
 
+              <template
+                v-if="
+                  getUser &&
+                  getUser.fetchedDataSignIn &&
+                  getUser.fetchedDataSignIn.user
+                "
+              >
+                <div
+                  class="flex flex-col gap-2 items-center justify-center myPrimaryParagraph border-y border-myPrimaryLightMediumGrayColor mt-12 py-8"
+                >
+                  <span class="myPriamryParagraph italic">
+                    Successfully signed in as
+                  </span>
+                  <span>
+                    {{ getUser.fetchedDataSignIn.user.FirstName }}
+                    {{ getUser.fetchedDataSignIn.user.LastName }}
+                  </span>
+                  <span>
+                    {{ getUser.fetchedDataSignIn.user.Email }}
+                  </span>
+                </div>
+              </template>
               <template v-if="getUser && getUser.errorSignIn">
                 <p class="myPrimaryParagraphError">
                   {{ getUser && getUser.errorSignIn }}
