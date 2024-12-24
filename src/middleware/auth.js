@@ -12,10 +12,12 @@ export function setupAuthGuard(router) {
       userStore.getUser.fetchedDataUser.user
     ) {
       console.log(
-        'Auth:',
+        'Authentication succeeded:',
         userStore.getUser.fetchedDataUser.user.FirstName,
         userStore.getUser.fetchedDataUser.user.LastName
       );
+    } else {
+      console.log('Authentication failed.');
     }
 
     next();
