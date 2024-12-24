@@ -6,14 +6,6 @@ import SignOut from '@/Components/Auth/SignOut.vue';
 
 <template>
   <div>
-    <div class="px-2 pt-4 rounded-none">
-      <p
-        class="myPrimaryParagraph text-myPrimaryMediumGrayColor italic text-xs pt-2 pb-2 border-t"
-      >
-        Account
-      </p>
-    </div>
-
     <UserBadge :borderLeft="false"></UserBadge>
 
     <div class="px-2 pt-4 rounded-none">
@@ -53,7 +45,7 @@ import SignOut from '@/Components/Auth/SignOut.vue';
           <p
             class="myPrimaryParagraph text-myPrimaryMediumGrayColor italic text-xs pt-2 pb-2 border-t"
           >
-            Join us
+            Manage
           </p>
         </div>
         <RouterLink
