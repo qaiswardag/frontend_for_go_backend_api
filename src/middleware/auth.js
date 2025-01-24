@@ -4,7 +4,7 @@ export function setupAuthGuard(router) {
   const userStore = useUserStore();
 
   router.beforeEach(async (to, from, next) => {
-    const publicPages = ['/sign-in', '/sign-up'];
+    const publicPages = ['/sign-in', '/sign-up', '/reset-password'];
 
     if (publicPages.includes(to.path)) {
       return next();
