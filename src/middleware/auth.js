@@ -10,7 +10,9 @@ export function setupAuthGuard(router) {
       return next();
     }
 
+    userStore.setIsLoading(true);
     await userStore.setLoadUser();
+    userStore.setIsLoading(false);
 
     if (
       userStore.getUser &&

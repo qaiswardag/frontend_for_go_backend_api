@@ -4,22 +4,29 @@ import Footer from '@/Components/Homepage/Footer.vue';
 import LoggedinSidebar from '@/Components/Sidebars/LoggedinSidebar.vue';
 import ApplicationLogo from '@/Components/Logos/ApplicationLogo.vue';
 import LoggedInLayout from '@/Layouts/LoggedInLayout.vue';
+import FullScreenSpinner from '@/Components/Loaders/FullScreenSpinner.vue';
 import {
   Dialog,
   DialogPanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
   TransitionChild,
   TransitionRoot,
 } from '@headlessui/vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useUserStore } from '@/stores/user';
+
+const userStore = useUserStore();
+
+const getIsLoading = computed(() => {
+  return userStore.getIsLoading;
+});
 
 const sidebarOpen = ref(false);
 </script>
 
 <template>
+  <teleport to="body">
+    <FullScreenSpinner v-if="getIsLoading"></FullScreenSpinner>
+  </teleport>
   <div>
     <!-- Static sidebar for mobile - start -->
     <TransitionRoot

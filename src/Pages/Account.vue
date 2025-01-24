@@ -105,9 +105,6 @@ onBeforeMount(() => {
 
 <template>
   <div>
-    <teleport to="body">
-      <FullScreenSpinner v-if="getIsLoading"></FullScreenSpinner>
-    </teleport>
     <PageBuilderModal
       :show="openPageBuilder"
       updateOrCreate="create"
