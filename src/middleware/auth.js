@@ -4,6 +4,12 @@ export function setupAuthGuard(router) {
   const userStore = useUserStore();
 
   router.beforeEach(async (to, from, next) => {
+    const publicPages = ['/sign-in', '/sign-up'];
+
+    if (publicPages.includes(to.path)) {
+      return next();
+    }
+
     await userStore.setLoadUser();
 
     if (
@@ -17,10 +23,10 @@ export function setupAuthGuard(router) {
         userStore.getUser.fetchedDataUser.user.LastName,
         userStore.getUser.fetchedDataUser.user.Email
       );
+      next();
     } else {
       console.log('Authentication failed.');
+      next('/sign-in');
     }
-
-    next();
   });
 }
