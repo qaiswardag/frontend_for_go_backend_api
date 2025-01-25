@@ -3,7 +3,7 @@
     <div
       class="bg-opacity-30 bg-white flex justify-center items-center h-screen w-screen fixed inset-0 z-40"
     >
-      <div class="p-12 bg-red-200 rounded-full">
+      <div class="p-4 bg-red-200 rounded-full">
         <div>
           <div class="container">
             <div class="cloud front">
