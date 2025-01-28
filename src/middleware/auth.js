@@ -6,13 +6,13 @@ export function setupAuthGuard(router) {
   router.beforeEach(async (to, from, next) => {
     const publicPages = ['/sign-in', '/sign-up', '/reset-password'];
 
-    if (publicPages.includes(to.path)) {
-      return next();
-    }
-
     userStore.setIsLoading(true);
     await userStore.setLoadUser();
     userStore.setIsLoading(false);
+
+    if (publicPages.includes(to.path)) {
+      return next();
+    }
 
     if (
       userStore.getUser &&
