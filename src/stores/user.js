@@ -95,7 +95,7 @@ export const useUserStore = defineStore('user', {
             }),
           },
           {
-            additionalCallTime: 1000,
+            additionalCallTime: 500,
           }
         );
 
@@ -142,7 +142,7 @@ export const useUserStore = defineStore('user', {
             }),
           },
           {
-            additionalCallTime: 1000,
+            additionalCallTime: 500,
           }
         );
 
@@ -179,7 +179,7 @@ export const useUserStore = defineStore('user', {
             },
           },
           {
-            additionalCallTime: 1000,
+            additionalCallTime: 500,
           }
         );
 
@@ -219,7 +219,7 @@ export const useUserStore = defineStore('user', {
             },
           },
           {
-            additionalCallTime: 1000,
+            additionalCallTime: 500,
           }
         );
 

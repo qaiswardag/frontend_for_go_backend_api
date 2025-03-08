@@ -29,7 +29,7 @@ const handleGetJobs = async function () {
           password: password.value,
         }),
       },
-      { additionalCallTime: 2000 }
+      { additionalCallTime: 500 }
     );
   } catch (error) {
     console.error(`Error:`, error);
