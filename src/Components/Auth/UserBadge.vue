@@ -32,7 +32,7 @@ const getUser = computed(() => {
           <div>
             <svg
               aria-hidden="true"
-              class="w-6 h-6 text-red-200 animate-spin fill-myPrimaryLinkColor"
+              class="w-4 h-4 text-red-300 animate-spin fill-myPrimaryLinkColor"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
