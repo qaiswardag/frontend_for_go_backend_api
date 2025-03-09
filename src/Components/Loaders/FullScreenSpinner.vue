@@ -1,7 +1,7 @@
 <template>
   <teleport to="body">
     <div
-      class="bg-opacity-100 bg-white flex justify-center items-center h-screen w-screen fixed inset-0 z-40"
+      class="bg-opacity-50 bg-white flex justify-center items-center h-screen w-screen fixed inset-0 z-40"
     >
       <div class="p-4 bg-red-200 rounded-full">
         <div>
