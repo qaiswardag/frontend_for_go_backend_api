@@ -198,6 +198,7 @@ export const useUserStore = defineStore('user', {
 
     // Sign out user
     async setUserSignOut(payload) {
+      this.setIsLoading(true);
       this.setUser({
         handleData: handleDataSignOut,
         fetchedDataSignOut,
@@ -232,7 +233,9 @@ export const useUserStore = defineStore('user', {
           isLoadingSignOut,
           isSuccessSignOut,
         });
+        this.setIsLoading(false);
       } catch (error) {
+        this.setIsLoading(false);
         console.error(`Error:`, error);
       }
     },

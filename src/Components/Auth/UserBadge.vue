@@ -14,6 +14,9 @@ const userStore = useUserStore();
 const getUser = computed(() => {
   return userStore.getUser;
 });
+const getIsLoading = computed(() => {
+  return userStore.getIsLoading;
+});
 </script>
 
 <template>
@@ -25,7 +28,12 @@ const getUser = computed(() => {
       class="text-sm font-medium text-myPrimaryDarkGrayColor cursor-pointer px-4"
     >
       <!-- Loading user # start -->
-      <template v-if="getUser && getUser.isLoadingUser && !getUser.isErrorUser">
+      <template
+        v-if="
+          getIsLoading ||
+          (getUser && getUser.isLoadingUser && !getUser.isErrorUser)
+        "
+      >
         <div
           class="rounded-l-full min-h-[3rem] flex items-center justify-center w-10 h-10"
         >
@@ -54,17 +62,18 @@ const getUser = computed(() => {
       <!-- Signed out user # start -->
       <template
         v-if="
-          !getUser ||
-          (getUser && !getUser.isLoadingUser && !getUser.fetchedDataUser) ||
-          (getUser &&
-            getUser.fetchedDataUser &&
-            !getUser.isLoadingUser &&
-            !getUser.fetchedDataUser.user) ||
-          (getUser &&
-            !getUser.isLoadingUser &&
-            (getUser.fetchedDataUser === null ||
-              (getUser.fetchedDataUser &&
-                getUser.fetchedDataUser.user === null)))
+          !getIsLoading &&
+          (!getUser ||
+            (getUser && !getUser.isLoadingUser && !getUser.fetchedDataUser) ||
+            (getUser &&
+              getUser.fetchedDataUser &&
+              !getUser.isLoadingUser &&
+              !getUser.fetchedDataUser.user) ||
+            (getUser &&
+              !getUser.isLoadingUser &&
+              (getUser.fetchedDataUser === null ||
+                (getUser.fetchedDataUser &&
+                  getUser.fetchedDataUser.user === null))))
         "
       >
         <div
