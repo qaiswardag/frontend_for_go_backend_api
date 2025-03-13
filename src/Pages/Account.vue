@@ -6,7 +6,6 @@ import PageBuilderModal from '@/Components/Modals/PageBuilderModal.vue';
 
 import PageBuilderView from '@/PageBuilder/PageBuilder.vue';
 import PageBuilder from '@/composables/PageBuilder';
-import FullScreenSpinner from '@/Components/Loaders/FullScreenSpinner.vue';
 import { usePageBuilderStateStore } from '@/stores/page-builder-state';
 import { useUserStore } from '@/stores/user';
 import { useMediaLibraryStore } from '@/stores/media-library';
