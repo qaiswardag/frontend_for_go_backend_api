@@ -39,7 +39,7 @@ const getUser = computed(() => {
         <span>Sign out</span>
       </template>
       <template v-else>
-        <span>Signing out...</span>
+        <span>Signing out..</span>
       </template>
     </span>
 
