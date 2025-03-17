@@ -150,7 +150,7 @@ const sidebarOpen = ref(false);
               getUser: {{ JSON.stringify(getUser) }}
             </p>
           </div>
-          <router-view> </router-view>
+          <slot />
         </div>
       </main>
     </div>

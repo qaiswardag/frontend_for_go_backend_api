@@ -1,5 +1,6 @@
 <script setup>
 import { vueFetch } from '@/composables/vueFetch';
+import LayoutNotLoggedIn from '@/Layouts/LayoutNotLoggedIn.vue';
 import { ref, onMounted } from 'vue';
 
 const {
@@ -31,12 +32,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
-      Home
-    </h2>
-    <p>Home content here...</p>
+  <LayoutNotLoggedIn>
+    <div>
+      <h2 class="myTertiaryHeader text-center py-12 bg-slate-600 text-white">
+        Home
+      </h2>
+      <p>Home content here...</p>
 
-    <p>fetchedData: {{ fetchedData }}</p>
-  </div>
+      <p>fetchedData: {{ fetchedData }}</p>
+    </div>
+  </LayoutNotLoggedIn>
 </template>

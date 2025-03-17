@@ -16,4 +16,5 @@ const sidebarOpen = ref(false);
   <teleport to="body">
     <FullScreenSpinner v-if="getIsLoading"></FullScreenSpinner>
   </teleport>
+  <router-view> </router-view>
 </template>

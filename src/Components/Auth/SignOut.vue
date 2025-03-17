@@ -25,7 +25,7 @@ const getUser = computed(() => {
       class="text-myPrimaryDarkGrayColor group flex items-center font-normal gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 relative"
       :class="{
         'py-2 px-6': layoutDesign === 'topMainMenu',
-        'py-4 pl-6 pr-2 w-full': layoutDesign === 'leftSidebar',
+        'py-4 pl-4 pr-2 w-full': layoutDesign === 'leftSidebar',
       }"
       type="button"
       @click="handleLogOut"
