@@ -9,6 +9,7 @@ import PageBuilder from '@/composables/PageBuilder';
 import { usePageBuilderStateStore } from '@/stores/page-builder-state';
 import { useUserStore } from '@/stores/user';
 import { useMediaLibraryStore } from '@/stores/media-library';
+import LayoutLoggedIn from '@/Layouts/LayoutLoggedIn.vue';
 
 const mediaLibraryStore = useMediaLibraryStore();
 const pageBuilderStateStore = usePageBuilderStateStore();
@@ -103,6 +104,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
+  <LayoutLoggedIn></LayoutLoggedIn>
   <div>
     <PageBuilderModal
       :show="openPageBuilder"
