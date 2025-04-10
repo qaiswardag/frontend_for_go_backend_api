@@ -20,7 +20,7 @@ const getUser = computed(() => {
 });
 </script>
 <template>
-  <template v-if="getUser && getUser.fetchedDataUser">
+  <template v-if="true || (getUser && getUser.fetchedDataUser)">
     <button
       class="text-myPrimaryDarkGrayColor group flex items-center font-normal gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 relative"
       :class="{
@@ -35,7 +35,13 @@ const getUser = computed(() => {
       </template>
 
       <!-- Visible text that changes dynamically -->
-      <span class="absolute inset-0 flex justify-center items-center">
+      <span
+        class="absolute inset-0 flex items-center justify-center"
+        :class="{
+          '': layoutDesign === 'topMainMenu',
+          '': layoutDesign === 'leftSidebar',
+        }"
+      >
         <template v-if="getUser && !getUser.isLoadingSignOut">
           <span>Sign out</span>
         </template>
