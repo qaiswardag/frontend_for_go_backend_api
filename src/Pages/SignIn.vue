@@ -115,6 +115,9 @@ const handleForm = async function () {
                     <template v-if="getUser && getUser.isLoadingSignIn"
                       >Loading..
                     </template>
+                    <template v-if="!getUser">
+                      <span> Submit </span>
+                    </template>
                   </button>
                 </div>
 

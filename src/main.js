@@ -35,6 +35,6 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 
-setupAuthGuard(router);
+// setupAuthGuard(router);
 
 app.mount('#app');

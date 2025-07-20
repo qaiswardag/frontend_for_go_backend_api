@@ -20,38 +20,40 @@ const getUser = computed(() => {
 });
 </script>
 <template>
-  <template v-if="true || (getUser && getUser.fetchedDataUser)">
-    <button
-      class="text-myPrimaryDarkGrayColor group flex items-center font-normal gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 relative"
-      :class="{
-        'py-2 px-6': layoutDesign === 'topMainMenu',
-        'py-4 pl-4 pr-2 w-full': layoutDesign === 'leftSidebar',
-      }"
-      type="button"
-      @click="handleLogOut"
-    >
-      <template v-if="layoutDesign === 'leftSidebar'">
-        <span class="material-symbols-outlined"> arrow_right_alt </span>
-      </template>
-
-      <!-- Visible text that changes dynamically -->
-      <span
-        class="absolute inset-0 flex items-center justify-center"
+  <div>
+    <template v-if="getUser">
+      <button
+        class="text-myPrimaryDarkGrayColor group flex items-center font-normal gap-3 rounded-full hover:bg-myPrimaryLightGrayColor bg-gray-50 relative"
         :class="{
-          '': layoutDesign === 'topMainMenu',
-          '': layoutDesign === 'leftSidebar',
+          'py-2 px-6': layoutDesign === 'topMainMenu',
+          'py-4 pl-4 pr-2 w-full': layoutDesign === 'leftSidebar',
         }"
+        type="button"
+        @click="handleLogOut"
       >
-        <template v-if="getUser && !getUser.isLoadingSignOut">
-          <span>Sign out</span>
+        <template v-if="layoutDesign === 'leftSidebar'">
+          <span class="material-symbols-outlined"> arrow_right_alt </span>
         </template>
-        <template v-if="getUser && getUser.isLoadingSignOut">
-          <span>Signing out..</span>
-        </template>
-      </span>
 
-      <!-- Invisible text for consistent button width -->
-      <span class="invisible">Signing out...</span>
-    </button>
-  </template>
+        <!-- Visible text that changes dynamically -->
+        <span
+          class="absolute inset-0 flex items-center justify-center"
+          :class="{
+            '': layoutDesign === 'topMainMenu',
+            '': layoutDesign === 'leftSidebar',
+          }"
+        >
+          <template v-if="getUser && !getUser.isLoadingSignOut">
+            <span>Sign out</span>
+          </template>
+          <template v-if="getUser && getUser.isLoadingSignOut">
+            <span>Signing out..</span>
+          </template>
+        </span>
+
+        <!-- Invisible text for consistent button width -->
+        <span class="invisible">Signing out...</span>
+      </button>
+    </template>
+  </div>
 </template>
